@@ -71,6 +71,7 @@ class SignUpForm extends Form {
     let [userAlreadyExist, datasInStorage] = this.checkUserExist(formData);
 
     if (userAlreadyExist) {
+      e.preventDefault();
       alert("email已被註冊");
       return;
     }

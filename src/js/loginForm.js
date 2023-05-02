@@ -37,6 +37,7 @@ class LoginForm extends Form {
     const formData = new FormData(e.target);
     let userAlreadyExist = this.checkUserExist(formData)[0];
     if (!userAlreadyExist) {
+      e.preventDefault();
       alert("使用者不存在");
       return;
     }
