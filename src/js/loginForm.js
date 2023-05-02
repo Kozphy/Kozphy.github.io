@@ -44,8 +44,6 @@ class LoginForm extends Form {
     let user = formData.get("email");
     browserStorage.setStorageData(this.storage, "loginUser", [user]);
     personalInfo.afterLoginPersonalInfoContent();
-    console.log(1);
-    console.log(this.signUpFormElement);
     this.closeForm();
     alert("登入成功");
   }

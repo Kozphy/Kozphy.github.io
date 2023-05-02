@@ -25,148 +25,62 @@ class Product extends btnAddRm {
     this.filterCheckboxs = this.filterSection.querySelectorAll(
       "input[type='checkbox']"
     );
+    this.filterBtn = this.filterSection.querySelector(".filterBtn");
 
     this.storage = sessionStorage;
     this.storageObjectName = "products";
 
     this.renderProductsData = productsSrc;
     this.filterConditions = [];
+    this.searchBarCondition;
+    this.searchBarValue;
 
-    this.init();
+    this.render();
 
     shopCartCanvas.renderCanvasProducts();
-    this.productsSearchClickEvent();
+    // this.productsSearchClickEvent();
   }
 
-  init() {
-    this.renderProducts();
-    this.addBtn = this.content.querySelectorAll(".products-content .btn-add");
-    this.reduceBtn = this.content.querySelectorAll(".btn-reduce");
+  render() {
+    this.renderProducts(productsSrc);
     this.addEvents();
   }
 
   addEvents() {
+    this.filterBtnEvent();
+    this.productsSearchClickEvent();
+    this.bindEventsAfterRender();
+  }
+
+  bindEventsAfterRender() {
+    this.addBtn = this.content.querySelectorAll(".products-content .btn-add");
+    this.reduceBtn = this.content.querySelectorAll(".btn-reduce");
     this.increaseCounterEvent();
     this.reduceCounterEvent();
     this.productToShopCartClickEvent();
+  }
 
-    this.filterCheckboxs.forEach((checkbox) => {
-      checkbox.addEventListener("change", (e) => {
-        this.handleFilterChange(e);
-      });
+  // Events
+  filterBtnEvent() {
+    this.filterBtn.addEventListener("click", (e) => {
+      this.getSearchBarValue();
+      let productsAfterSearch = this.handleSearchBarData();
+      this.getcheckBoxConditions();
+      let productsAfterFilter = this.handleFilterData(productsAfterSearch);
+      this.renderProducts(productsAfterFilter);
+      this.bindEventsAfterRender();
     });
   }
 
-  handleFilterChange(event) {
-    const filterMethod = filterMap[event.target.getAttribute("id")];
-    const checkedCondition = event.target.checked;
-
-    if (checkedCondition) {
-      this.filterConditions.push(filterMethod);
-    } else {
-      const removeArrIndex = this.filterConditions.indexOf(filterMethod);
-      this.filterConditions.splice(removeArrIndex, 1);
-    }
-
-    if (this.filterConditions.length === 0) {
-      this.renderProductsData = productsSrc;
-    } else {
-      this.renderProductsData = productsSrc.filter((product) => {
-        return (
-          this.filterConditions.indexOf(product.productType) !== -1 ||
-          this.filterConditions.indexOf(product.placeOfOrigin) !== -1 ||
-          this.filterConditions.indexOf(product.handleMethod) !== -1
-        );
-      });
-    }
-
-    this.renderProducts();
-    this.productToShopCartClickEvent();
-  }
-
-  renderProducts() {
-    this.productSection.innerHTML = "";
-
-    this.renderProductsData.forEach((product) => {
-      const productHTML = this.getProductHTML(product);
-      this.productSection.insertAdjacentHTML("beforeend", productHTML);
+  productsSearchClickEvent() {
+    let productsSearchBtn = this.content.querySelector(".productsSearchBtn");
+    productsSearchBtn.addEventListener("click", (e) => {
+      this.getSearchBarValue();
+      let productsAfterSearch = this.handleSearchBarData();
+      console.log(productsAfterSearch);
+      this.renderProducts(productsAfterSearch);
+      this.bindEventsAfterRender();
     });
-  }
-
-  getProductHTML(product) {
-    let badgesMap = {
-      coffeeBean: "咖啡豆",
-      coffeeBeverage: "精品咖啡",
-      waterWash: "水洗",
-      sunShine: "日曬",
-      Indonesia: "印尼",
-      India: "印度",
-    };
-
-    return `<div class="col-lg-4 col-12 mb-3">
-                <div class="card img-fluid" >
-                <a href="${
-                  product.img_src
-                }" data-lightbox="img-1" style="display:inline-block" 
-                data-title="${product.cardTitle}"
-                data-alt="${product.img_alt}">
-
-                  <img
-                    src="${product.img_src}"
-                    class="card-img-top"
-                    alt="${product.img_alt}"
-                  />
-                </a>
-                  <div class="card-body">
-                    <h5 class="card-title productName">
-                    ${product.cardTitle} 
-                    </h5>
-                    <h5 class="product-badges">
-                      <span class="badge bg-secondary">${
-                        badgesMap[product.productType]
-                      }</span>
-                      <span class="badge bg-secondary">${
-                        badgesMap[product.placeOfOrigin]
-                      }</span>
-                      <span class="badge bg-secondary">${
-                        badgesMap[product.handleMethod]
-                      }</span>
-                    </h5>
-                    <p class="card-text productContent overflow-auto" style="height:120px">
-                    ${product.content}
-                    </p>
-                    <div class="input-group  mb-3">
-                      <button
-                        class="btn btn-outline-secondary btn-reduce"
-                        type="button"
-                      >
-                        <span>-</span>
-                      </button>
-                      <input
-                        type="text"
-                        class="form-control text-center productCounter"
-                        aria-label="Example text with button addon"
-                        aria-describedby="button-addon1"
-                        value="1"
-                      />
-                      <button
-                        class="btn btn-outline-secondary btn-add"
-                        type="button"
-                      >
-                        <span> + </span>
-                      </button>
-                    </div>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <div class"mb-2">
-                      <span class="romantic-text productPrice h5">$ ${
-                        product.price
-                      }</span>
-                    </div>
-                    <button id="liveToastBtn" type="button"  class="btn btn-primary addToCart">加入購物車</button>
-                    </div>
-                  </div>
-                </div>
-              </div>`;
   }
 
   productToShopCartClickEvent() {
@@ -267,27 +181,147 @@ class Product extends btnAddRm {
     });
   }
 
-  productsSearchClickEvent() {
-    let productsSearchBtn = this.content.querySelector(".productsSearchBtn");
-    // console.log(productsSearchBtn);
-    const searchproducts = (e) => {
-      let searchBtnParent = e.target.closest(".search-bar");
-      let searchBar = searchBtnParent.querySelector(".productsSearchBar");
-      if (searchBar.value) {
-        let datas = productsSrc.filter((product) => {
-          return product.cardTitle.includes(searchBar.value);
-        });
-        this.renderProductsData = datas;
-      } else {
-        this.renderProductsData = productsSrc;
+  // method
+  getcheckBoxConditions() {
+    let filterConditions = [];
+    this.filterCheckboxs.forEach((checkbox) => {
+      const checkedCondition = checkbox.checked;
+      const filterMethod = filterMap[checkbox.getAttribute("id")];
+      if (checkedCondition) {
+        filterConditions.push(filterMethod);
       }
+    });
+    this.filterConditions = filterConditions;
+  }
+
+  getSearchBarValue() {
+    this.searchBarValue = undefined;
+    let searchBtnParent = document.querySelector(".search-bar");
+    let searchBar = searchBtnParent.querySelector(".productsSearchBar");
+    if (searchBar.value) {
+      this.searchBarValue = searchBar.value;
+    }
+  }
+
+  handleSearchBarData() {
+    let productsAfterSearch;
+    if (this.searchBarValue == undefined) {
+      productsAfterSearch = productsSrc;
+      return productsAfterSearch;
+    }
+    console.log(this.searchBarValue);
+    productsAfterSearch = productsSrc.filter((product) => {
+      // console.log(product.cardTitle);
+      return product.cardTitle.includes(this.searchBarValue);
+    });
+    return productsAfterSearch;
+  }
+
+  handleFilterData(productsAfterSearch) {
+    let productsAfterFilter;
+    if (this.filterConditions.length === 0) {
+      productsAfterFilter = productsAfterSearch;
+      return productsAfterFilter;
+    }
+    // console.log(productsSrc);
+
+    productsAfterFilter = productsAfterSearch.filter((product) => {
+      let filterConditions =
+        this.filterConditions.indexOf(product.productType) !== -1 ||
+        this.filterConditions.indexOf(product.placeOfOrigin) !== -1 ||
+        this.filterConditions.indexOf(product.handleMethod) !== -1;
+
+      // console.log("filterConditions: ", filterConditions);
+      // console.log("searchBarCondition: ", searchBarCondition);
+      return filterConditions;
+    });
+    return productsAfterFilter;
+  }
+
+  // render
+  renderProducts(products) {
+    this.productSection.innerHTML = "";
+
+    products.forEach((product) => {
+      const productHTML = this.getProductHTML(product);
+      this.productSection.insertAdjacentHTML("beforeend", productHTML);
+    });
+  }
+
+  getProductHTML(product) {
+    let badgesMap = {
+      coffeeBean: "咖啡豆",
+      coffeeBeverage: "精品咖啡",
+      waterWash: "水洗",
+      sunShine: "日曬",
+      Indonesia: "印尼",
+      India: "印度",
     };
 
-    productsSearchBtn.addEventListener("click", (e) => {
-      searchproducts(e);
-      console.log(1);
-      this.init();
-    });
+    return `<div class="col-lg-4 col-12 mb-3">
+                <div class="card img-fluid" >
+                <a href="${
+                  product.img_src
+                }" data-lightbox="img-1" style="display:inline-block" 
+                data-title="${product.cardTitle}"
+                data-alt="${product.img_alt}">
+
+                  <img
+                    src="${product.img_src}"
+                    class="card-img-top"
+                    alt="${product.img_alt}"
+                  />
+                </a>
+                  <div class="card-body">
+                    <h5 class="card-title productName">
+                    ${product.cardTitle} 
+                    </h5>
+                    <h5 class="product-badges">
+                      <span class="badge bg-secondary">${
+                        badgesMap[product.productType]
+                      }</span>
+                      <span class="badge bg-secondary">${
+                        badgesMap[product.placeOfOrigin]
+                      }</span>
+                      <span class="badge bg-secondary">${
+                        badgesMap[product.handleMethod]
+                      }</span>
+                    </h5>
+                    <p class="card-text productContent overflow-auto" style="height:120px">
+                    ${product.content}
+                    </p>
+                    <div class="input-group  mb-3">
+                      <button
+                        class="btn btn-outline-secondary btn-reduce"
+                        type="button"
+                      >
+                        <span>-</span>
+                      </button>
+                      <input
+                        type="text"
+                        class="form-control text-center productCounter"
+                        aria-label="Example text with button addon"
+                        aria-describedby="button-addon1"
+                        value="1"
+                      />
+                      <button
+                        class="btn btn-outline-secondary btn-add"
+                        type="button"
+                      >
+                        <span> + </span>
+                      </button>
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                    <div class"mb-2">
+                      <span class="romantic-text productPrice h5">$ ${
+                        product.price
+                      }</span>
+                    </div>
+                    <button id="liveToastBtn" type="button"  class="btn btn-primary addToCart">加入購物車</button>
+                    </div>
+                  </div>
+                </div>
+              </div>`;
   }
 }
 
