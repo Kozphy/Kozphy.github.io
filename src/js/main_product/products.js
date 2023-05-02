@@ -33,21 +33,23 @@ class Product extends btnAddRm {
     this.filterConditions = [];
 
     this.init();
-    this.addBtn = this.content.querySelectorAll(".products-content .btn-add");
-    this.reduceBtn = this.content.querySelectorAll(".btn-reduce");
-    this.increaseCounterEvent();
-    this.reduceCounterEvent();
-    this.productToShopCartClickEvent();
+
     shopCartCanvas.renderCanvasProducts();
     this.productsSearchClickEvent();
   }
 
   init() {
     this.renderProducts();
+    this.addBtn = this.content.querySelectorAll(".products-content .btn-add");
+    this.reduceBtn = this.content.querySelectorAll(".btn-reduce");
     this.addEvents();
   }
 
   addEvents() {
+    this.increaseCounterEvent();
+    this.reduceCounterEvent();
+    this.productToShopCartClickEvent();
+
     this.filterCheckboxs.forEach((checkbox) => {
       checkbox.addEventListener("change", (e) => {
         this.handleFilterChange(e);
@@ -276,15 +278,15 @@ class Product extends btnAddRm {
           return product.cardTitle.includes(searchBar.value);
         });
         this.renderProductsData = datas;
-        this.renderProducts();
       } else {
         this.renderProductsData = productsSrc;
-        this.renderProducts();
       }
     };
 
     productsSearchBtn.addEventListener("click", (e) => {
       searchproducts(e);
+      console.log(1);
+      this.init();
     });
   }
 }
