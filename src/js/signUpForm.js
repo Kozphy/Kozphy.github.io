@@ -66,8 +66,6 @@ class SignUpForm extends Form {
   }
 
   signUpAction(e) {
-    e.preventDefault();
-
     const formData = new FormData(e.target);
 
     let [userAlreadyExist, datasInStorage] = this.checkUserExist(formData);

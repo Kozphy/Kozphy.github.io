@@ -34,7 +34,6 @@ class LoginForm extends Form {
   }
 
   loginAction(e) {
-    e.preventDefault();
     const formData = new FormData(e.target);
     let userAlreadyExist = this.checkUserExist(formData)[0];
     if (!userAlreadyExist) {
@@ -44,6 +43,8 @@ class LoginForm extends Form {
     let user = formData.get("email");
     browserStorage.setStorageData(this.storage, "loginUser", [user]);
     personalInfo.afterLoginPersonalInfoContent();
+    console.log(1);
+    console.log(this.signUpFormElement);
     this.closeForm();
     alert("登入成功");
   }
