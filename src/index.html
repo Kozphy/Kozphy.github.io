@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FeFe</title>
+
+    <!-- common -->
+    <link rel="stylesheet" href="./stylesheet/reset.css" />
+    <link rel="stylesheet" href="./stylesheet/common.css" />
+    <link rel="stylesheet" href="./stylesheet/navbar.css" />
+    <link rel="stylesheet" href="./stylesheet/footer.css" />
+    <link rel="stylesheet" href="./stylesheet/scroll-top.css" />
+    <link rel="stylesheet" href="./stylesheet/login_signup_form.css" />
+    <link href="https://fonts.cdnfonts.com/css/romantic" rel="stylesheet" />
+    <link rel="stylesheet" href="./stylesheet/shopCanvas.css" />
+
+    <!-- Home -->
+    <link rel="stylesheet" href="./stylesheet/Home/banner.css" />
+    <link rel="stylesheet" href="./stylesheet/Home/news.css" />
+    <link rel="stylesheet" href="./stylesheet/Home/category.css" />
+    <link rel="stylesheet" href="./stylesheet/Home/join_us.css" />
+    <link rel="stylesheet" href="./stylesheet/Home/index.css" />
+    <!-- <link rel="stylesheet" href="./stylesheet/slideshow.css" /> -->
+
+    <!-- third party -->
+
+    <link rel="stylesheet" href="./stylesheet/bootstrap/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- header -->
+      <header class="sticky">
+        <div id="nav-placeholder"></div>
+      </header>
+
+      <!-- banner section -->
+      <section class="banner-section">
+        <div class="banner">
+          <div class="container">
+            <div class="banner-txt">
+              <h1>
+                <span class="romantic-text">FeFe</span>
+                <small>Welcome</small>
+              </h1>
+              <p>We hope we can make your day a good one!</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- news  -->
+      <section class="news-section">
+        <!-- bootstrap carousel -->
+        <div class="news-title">最新消息</div>
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-bs-slide="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row">
+                <div class="col-3">
+                  <img
+                    src="./image/index/news/lottery-mug.jpg"
+                    class="d-block w-100"
+                    alt="lottery-mug"
+                  />
+                </div>
+                <div class="col-9 p-5">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Nihil, illo rem. Perferendis beatae et repellat, placeat
+                    provident iusto. Exercitationem quasi vel eius architecto
+                    alias. Magnam culpa porro neque ipsum numquam.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-3">
+                  <img
+                    src="./image/index/news/lottery2.jpg"
+                    class="d-block w-100"
+                    alt="lottery2"
+                  />
+                </div>
+                <div class="col-9 p-5">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel
+                    dolor aperiam ipsum eligendi modi magnam ratione ipsam nisi,
+                    tempore et, incidunt sit pariatur quidem provident, sequi
+                    adipisci! Assumenda, aliquid quae!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="row">
+                <div class="col-3">
+                  <img
+                    src="./image/index/news/big_news.jpg"
+                    class="d-block w-100"
+                    alt="big_news"
+                  />
+                </div>
+                <div class="col-9 p-5">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Exercitationem quod accusamus alias cumque, quos repudiandae
+                    quam earum, atque libero ullam adipisci quibusdam blanditiis
+                    similique sunt excepturi enim officia beatae hic?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- category -->
+      <section class="category">
+        <div class="container">
+          <div class="row">
+            <div class="category-title col-12 col-md-1 order-1">
+              <h2 class="category-title-content">產品種類</h2>
+            </div>
+            <div class="row col-12 col-md-12 order-2">
+              <div class="col-12 col-lg-4 mb-3 mb-lg-0">
+                <div class="category-content category-content-1">
+                  <a href="./main_product.html" class="text-black">
+                    <img
+                      class="img-fluid category-img"
+                      src="./image/index/product/boutique_coffee.webp"
+                      alt="boutique_coffee"
+                    />
+                    <div class="category-img-text">
+                      <p>精品咖啡</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-4 mb-3">
+                <div class="category-content category-content-2">
+                  <a href="./main_product.html" class="text-black">
+                    <img
+                      class="img-fluid category-img"
+                      src="./image/index/product/coffee-beans.jpg"
+                      alt="coffee_bean"
+                    />
+                    <div class="category-img-text">
+                      <p>咖啡豆</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-4 mb-3">
+                <div class="category-content category-content-3">
+                  <a href="./main_product.html" class="text-black">
+                    <img
+                      class="img-fluid category-img"
+                      src="./image/index/product/cup.jpg"
+                      alt="cup"
+                    />
+                    <div class="category-img-text">
+                      <p>咖啡周邊</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="row mt-3 justify-content-around">
+                <div class="col-12 col-lg-4 mb-3">
+                  <div class="category-content category-content-4">
+                    <a href="./main_product.html" class="text-black">
+                      <img
+                        class="img-fluid category-img"
+                        src="./image/index/product/Margaret.jpg"
+                        alt="margaret"
+                      />
+                      <div class="category-img-text">
+                        <p>產地</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                  <div class="category-content category-content-5">
+                    <a href="./main_product.html" class="text-black">
+                      <img
+                        class="img-fluid category-img"
+                        src="./image/index/product/handling_method.webp"
+                        alt="handling method"
+                      />
+                      <div class="category-img-text">
+                        <p>處理手法</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- join us -->
+      <section class="join-us-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <h2 class="join-us-desc">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Asperiores accusamus nemo libero animi repellendus mollitia,
+                possimus eius sapiente temporibus numquam modi enim tenetur odio
+                maiores fugiat perspiciatis eligendi vitae illo.
+              </h2>
+            </div>
+            <div class="col-md-4">
+              <div class="join-us-interact">
+                <button type="button" class="btn btn-outline-info join-us-btn">
+                  Join us
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- sign up form -->
+      <!-- login form -->
+      <div id="form-placeholder"></div>
+
+      <!-- footer -->
+      <footer class="footer">
+        <div id="footer-placeholder"></div>
+      </footer>
+
+      <!-- arrow up -->
+      <div class="arrow-up-section text-center">
+        <a class="arrow-fa" href="#">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+
+      <!-- shop Canvas -->
+      <div class="shopCanvas">
+        <button
+          class="btn btn-secondary shopCanvasBtn"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          <i class="fa-solid fa-store fa-lg shopCanvasIcon"></i>
+        </button>
+
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">購物車</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="container">
+              <div class="productsTitle"></div>
+              <div class="shopCanvasProducts"></div>
+            </div>
+            <button type="button" class="btn btn-primary goToShopCartBtn">
+              Go to ShopCart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- common -->
+    <!-- <script src="./js/navbar.js" type="module" defer></script>
+    <script src="./js/footer.js" type="module" defer></script>
+    <script src="./js/RenderForms.js" type="module" defer></script> -->
+    <!-- <script src="./js/shopCartCanvas.js" type="module" defer></script> -->
+
+    <!-- self  -->
+    <!-- <script src="./js/slideshow.js"></script> -->
+    <!-- <script src="./js/Home/joinUs.js" type="module" defer></script> -->
+    <script src="./js/Home/home.js" type="module" defer></script>
+
+    <!-- third party -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/38880d85d8.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

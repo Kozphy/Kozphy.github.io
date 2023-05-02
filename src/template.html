@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact</title>
+
+    <!-- common -->
+    <link rel="stylesheet" href="./stylesheet/reset.css" />
+    <link rel="stylesheet" href="./stylesheet/navbar.css" />
+    <link rel="stylesheet" href="./stylesheet/footer.css" />
+    <link rel="stylesheet" href="./stylesheet/common.css" />
+    <link rel="stylesheet" href="./stylesheet/scroll-top.css" />
+    <link rel="stylesheet" href="./stylesheet/shopCanvas.css" />
+
+    <!-- third party -->
+    <link rel="stylesheet" href="./stylesheet/bootstrap/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="sticky">
+        <div id="nav-placeholder"></div>
+      </header>
+
+      <h1>ContactUs</h1>
+
+      <!-- sign up form -->
+      <!-- login form -->
+      <div id="form-placeholder"></div>
+
+      <!-- footer -->
+      <footer class="footer">
+        <div id="footer-placeholder"></div>
+      </footer>
+
+      <!-- arrow up -->
+      <div class="arrow-up-section text-center">
+        <a class="arrow-fa" href="#">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+
+      <!-- shop Canvas -->
+      <div class="shopCanvas">
+        <button
+          class="btn btn-secondary shopCanvasBtn"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          <i class="fa-solid fa-store fa-lg shopCanvasIcon"></i>
+        </button>
+
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">購物車</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="container">
+              <div class="productsTitle"></div>
+              <div class="shopCanvasProducts"></div>
+            </div>
+            <button type="button" class="btn btn-primary goToShopCartBtn">
+              Go to ShopCart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!-- common -->
+  <script src="./js/navbar.js" type="module"></script>
+  <script src="./js/footer.js" type="module"></script>
+  <script src="./js/RenderForms.js" type="module"></script>
+  <script src="./js/shopCartCanvas.js" type="module"></script>
+
+  <!-- third party -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
+  <script
+    src="https://kit.fontawesome.com/38880d85d8.js"
+    crossorigin="anonymous"
+  ></script>
+</html>

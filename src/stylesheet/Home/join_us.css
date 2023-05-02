@@ -1,0 +1,30 @@
+/* join us section */
+.join-us-section {
+  padding: 3rem;
+  background-color: #f8f8f8;
+}
+.join-us-section .join-us-title {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+}
+.join-us-section .join-us-title-content {
+  border: 10px solid gray;
+  padding: 10px;
+}
+
+.join-us-section .join-us-desc {
+  font-size: 20px;
+}
+
+.join-us-section .join-us-interact {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.join-us-section .join-us-btn {
+  padding: 10px 50px;
+  font-size: 1.25rem;
+}

@@ -1,0 +1,13 @@
+.shopCart .paymentMethod:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+/*  */
+.shopCartCheckout {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  /* z-index: 30; */
+}
+

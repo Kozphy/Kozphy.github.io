@@ -1,0 +1,131 @@
+.modal {
+  display: block;
+  z-index: -1;
+}
+
+.modal .modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  /* transition: all 2s !important; */
+}
+
+/* @keyframes movein {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200px);
+  }
+} */
+
+.modal-content-show {
+  /* animation: movein 2s linear; */
+  transform: translateY(200px) !important;
+  /* visibility: visible; */
+}
+
+.modal .container {
+  background-color: #ffffff;
+  padding: 0 20px;
+}
+
+.modal h1 {
+  font-size: 42px;
+}
+
+/* form header */
+.fa-window-close {
+  cursor: pointer;
+  transition: color 1s;
+}
+
+.fa-window-close:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.modal .login-tab,
+.modal .register-tab {
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: color 1s, background-color 1s;
+}
+
+.modal .login-tab:hover,
+.modal .register-tab:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.modal .login-text,
+.modal .register-text {
+  font-size: 30px;
+}
+
+/* form content */
+/* Full-width input fields */
+.modal input[type="text"],
+.modal input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+.modal input[type="text"]:focus,
+.modal input[type="password"]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.modal hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* button section */
+.modal .button-section {
+  padding-bottom: 1rem;
+}
+/* Set a style for all buttons */
+.modal .signUpbtn,
+.modal .cancelLoginbtn,
+.modal .cancelSignUpbtn,
+.modal .loginbtn {
+  background-color: #04aa6d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.modal .signupbtn:hover,
+.modal .loginbtn:hover,
+.modal .cancelLoginbtn:hover,
+.modal .cancelSignUpbtn:hover,
+.modal .forgotPassword:hover {
+  opacity: 1;
+}
+
+/* Extra styles for the cancel button */
+.modal .cancelLoginbtn,
+.modal .cancelSignUpbtn {
+  padding: 14px 20px;
+  background-color: #f44336;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .modal .cancelLoginbtn,
+  .modal .signupbtn {
+    width: 100%;
+  }
+}

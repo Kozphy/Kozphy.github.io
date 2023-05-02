@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="announcement">公告:</div>
+      <div class="container-fluid ps-0 pe-0">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary px-3">
+          <div class="brand d-flex">
+            <a class="navbar-brand romantic-text ms-2" href="./index.html">
+              <img
+                class="fefe-icon"
+                src="./image/icon/cup.png"
+                alt="fefe-icon"
+              />
+              FeFe</a
+            >
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+              <li class="nav-item">
+                <a
+                  class="nav-link about-FeFe active"
+                  aria-current="page"
+                  href="./index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link FeFe-main-product"
+                  aria-current="page"
+                  href="./main_product.html"
+                  >Products</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link FeFe-traffic"
+                  aria-current="page"
+                  href="./contactUs.html"
+                  >ContactUs</a
+                >
+              </li>
+
+              <li class="nav-item">
+                <a
+                  class="shop-cart nav-link FeFe-shopping"
+                  href="./shopCart.html"
+                >
+                  <i class="fa-solid fa-cart-shopping"></i>
+                  Cart
+                  <span class="shop-cart-counter">0</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <button type="button" class="btn border-0 personalInfo">
+                  <i class="fas fa-user-alt"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="personalInfoContent">
+        <div class="personalAction p-3">
+          <div
+            class="personalInfoUser fw-bold fs-4 mb-3 mt-5 text-center"
+          ></div>
+          <div class="personalInfoLogin fw-bold fs-4 mb-3 mt-5 text-center">
+            <span class="font-monospace"> Login </span>
+          </div>
+          <div class="personalInfoSignUp fw-bold fs-4 mb-3 text-center">
+            <span class="font-monospace"> SignUp </span>
+          </div>
+          <div class="personalInfoLogout fw-bold fs-4 mb-3 text-center">
+            <span class="font-monospace"> Logout </span>
+          </div>
+          <div class="personalInfoClose fw-bold fs-4 mb-3 text-center">
+            <span class="font-monospace"> Close </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

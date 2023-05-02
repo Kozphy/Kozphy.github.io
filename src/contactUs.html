@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContactUs</title>
+
+    <!-- common -->
+    <link rel="stylesheet" href="./stylesheet/reset.css" />
+    <link rel="stylesheet" href="./stylesheet/navbar.css" />
+    <link rel="stylesheet" href="./stylesheet/footer.css" />
+    <link rel="stylesheet" href="./stylesheet/common.css" />
+    <link rel="stylesheet" href="./stylesheet/scroll-top.css" />
+    <link rel="stylesheet" href="./stylesheet/shopCanvas.css" />
+    <link rel="stylesheet" href="./stylesheet/login_signup_form.css" />
+
+    <!-- third party -->
+    <link rel="stylesheet" href="./stylesheet/bootstrap/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/38880d85d8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="sticky">
+        <div id="nav-placeholder"></div>
+      </header>
+
+      <div class="container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d29124.832079525448!2d120.651025!3d24.150541!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d9650422ae1%3A0x334dfd5796c49ff6!2z6LOH5bGV5ZyL6ZqbLeWOnyDos4fnrZbmnIMt5pW45L2N5pWZ6IKy56CU56m25omALeS4reWNgA!5e0!3m2!1sen!2stw!4v1682783236837!5m2!1sen!2stw"
+          class="w-100"
+          height="450"
+          style="border: 0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <form action="">
+          <div class="row px-2">
+            <div class="col-lg-6">
+              <div class="mb-3">
+                <label for="Name" class="form-label"
+                  >姓名 <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="Name"
+                  placeholder="enter your Name"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="gender">性別 </label>
+                <select
+                  id="gender"
+                  class="form-select"
+                  aria-label="Default select example"
+                >
+                  <option value="1">男</option>
+                  <option value="2">女</option>
+                </select>
+              </div>
+
+              <div class="mb-3">
+                <label for="phone" class="form-label"
+                  >電話
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="phone"
+                  placeholder="enter your phone"
+                  required
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label"
+                  >信箱
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="name@example.com"
+                  required
+                />
+              </div>
+              <div>
+                <label for="address" class="form-label"
+                  >地址
+                  <span class="text-danger">*</span>
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="address"
+                  placeholder="enter your address"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col-lg-6 overflow-scroll">
+              <div class="mb-3">
+                <label for="filesSelect" class="form-label">檔案選擇</label>
+                <input
+                  class="form-control"
+                  type="file"
+                  id="filesSelect"
+                  multiple
+                />
+              </div>
+              <div style="height: 100%">
+                <label for="exampleFormControlTextarea1" class="form-label"
+                  >問題描述
+                  <span class="text-danger">*</span>
+                </label>
+                <textarea
+                  class="form-control"
+                  style="height: 100%; max-height: 100%; overflow-y: hidden"
+                  id="exampleFormControlTextarea1"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary mt-3 w-100">
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- sign up form -->
+      <!-- login form -->
+      <div id="form-placeholder"></div>
+
+      <!-- footer -->
+      <footer class="footer">
+        <div id="footer-placeholder"></div>
+      </footer>
+
+      <!-- arrow up -->
+      <div class="arrow-up-section text-center">
+        <a class="arrow-fa" href="#">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+
+      <!-- shop Canvas -->
+      <div class="shopCanvas">
+        <button
+          class="btn btn-secondary shopCanvasBtn"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          <i class="fa-solid fa-store fa-lg shopCanvasIcon"></i>
+        </button>
+
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">購物車</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="container">
+              <div class="productsTitle"></div>
+              <div class="shopCanvasProducts"></div>
+            </div>
+            <button type="button" class="btn btn-primary goToShopCartBtn">
+              Go to ShopCart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- common -->
+    <script src="./js/contactUs/contractUs.js" type="module"></script>
+    <!-- <script src="./js/navbar.js" type="module"></script>
+    <script src="./js/footer.js" type="module"></script>
+    <script src="./js/form.js" type="module"></script>
+    <script src="./js/signUpForm.js" type="module"></script>
+    <script src="./js/shopCartCanvas.js" type="module"></script> -->
+  </body>
+</html>

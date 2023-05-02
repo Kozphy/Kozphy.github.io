@@ -1,0 +1,94 @@
+/* header */
+.sticky {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 3;
+}
+
+header {
+  background: white;
+}
+
+header .announcement {
+  background-color: antiquewhite;
+  padding: 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* navbar */
+/* left */
+header .navbar .fefe-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar .navbar-brand {
+  display: flex;
+  align-items: flex-end;
+}
+
+/* right */
+.navbar .nav-link {
+  transition: all 1s;
+  margin: 0px 5px;
+  transform: skew(-15deg, 0deg);
+}
+.navbar .nav-link:hover,
+.navbar button:hover {
+  border-radius: 5px;
+  background-color: coral;
+}
+
+.navbar .shop-cart {
+  padding-left: 0px 3px;
+  position: relative;
+}
+.navbar .shop-cart-counter {
+  /* transform: skew(0deg, 0deg) !important; */
+  font-family: "Helvetica Neue", Helvetica, Arial, "文泉驛正黑",
+    "WenQuanYi Zen Hei", "Hiragino Sans GB", "儷黑 Pro, LiHei Pro", "Heiti TC",
+    "微軟正黑體", "Microsoft JhengHei UI", "Microsoft JhengHei", sans-serif;
+  position: absolute;
+  font-size: 12px;
+  right: 0;
+  top: -5px;
+  padding: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: gray;
+  color: white;
+  border-radius: 50%;
+  font-style: normal;
+  transform: none !important;
+}
+
+/* personalInfoContent */
+.personalInfoContent {
+  position: fixed;
+  right: 0;
+  height: 0%;
+  width: 0;
+  top: 110px;
+  /* width:200px; */
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  overflow-x: hidden;
+  /* z-index:20; */
+  /* visibility: hidden; */
+}
+
+.personalAction div:hover {
+  background-color: gainsboro;
+  cursor: pointer;
+  color: black;
+}
+
+.personalAction .personalInfoUser:hover {
+  background-color: transparent;
+  color: white;
+  cursor: none;
+}

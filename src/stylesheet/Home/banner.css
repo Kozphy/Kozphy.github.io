@@ -1,0 +1,44 @@
+/* banner */
+.banner {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(115deg, rgba(0, 0, 0, 0.35) 50%, transparent 53%)
+      left center / 100%,
+    url("../../image/banner/Luke_chesser.jpg") right center / auto 100%
+      no-repeat;
+  background-size: cover;
+}
+.banner .container {
+  height: 100vh;
+}
+
+.banner-txt {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+}
+
+.banner-txt h1 {
+  font-size: 80px;
+  border-bottom: 1px solid white;
+}
+
+.banner-txt h1 small {
+  display: block;
+  font-size: 53px;
+}
+
+.banner-txt h2 {
+  font-size: 50px;
+}
+.banner-txt p {
+  font-size: 30px;
+}
+/* .banner-txt-background {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.35);
+} */

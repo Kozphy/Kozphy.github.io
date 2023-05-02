@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>main_product</title>
+    <!-- common -->
+    <link rel="stylesheet" href="./stylesheet/reset.css" />
+    <link rel="stylesheet" href="./stylesheet/navbar.css" />
+    <link rel="stylesheet" href="./stylesheet/footer.css" />
+    <link rel="stylesheet" href="./stylesheet/common.css" />
+    <link rel="stylesheet" href="./stylesheet/scroll-top.css" />
+    <link href="https://fonts.cdnfonts.com/css/romantic" rel="stylesheet" />
+    <link rel="stylesheet" href="./stylesheet/login_signup_form.css" />
+    <link rel="stylesheet" href="./stylesheet/shopCanvas.css" />
+    <link
+      href="../node_modules/lightbox2/dist/css/lightbox.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- MainProduct -->
+    <!-- <link rel="stylesheet" href="./stylesheet/main_product/multiselect.css" /> -->
+    <link
+      rel="stylesheet"
+      href="./stylesheet/main_product/product-filter.css"
+    />
+    <link
+      rel="stylesheet"
+      href="./stylesheet/main_product/product-content.css"
+    />
+
+    <!-- third party -->
+    <link rel="stylesheet" href="./stylesheet/bootstrap/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <header class="sticky">
+      <div id="nav-placeholder"></div>
+    </header>
+
+    <!-- product content  -->
+    <section class="content pt-5">
+      <div class="container">
+        <div class="row">
+          <!-- left -->
+          <aside class="products-filter col-sm-3">
+            <h2 class="romantic-text text-center">Filter</h2>
+            <div class="mb-3">
+              <h4 class="text-center">咖啡品項</h4>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="HQcoffee"
+                />
+                <label class="form-check-label" for="HQcoffee">
+                  精品咖啡
+                </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="coffeeBean"
+                />
+                <label class="form-check-label" for="coffeeBean">
+                  咖啡豆
+                </label>
+              </div>
+            </div>
+            <div class="mb-3">
+              <h4 class="text-center">處理方式</h4>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="sunShine"
+                />
+                <label class="form-check-label" for="sunShine"> 日曬 </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="waterWash"
+                />
+                <label class="form-check-label" for="waterWash"> 水洗 </label>
+              </div>
+            </div>
+            <div>
+              <h4 class="text-center font-monospace">產地</h4>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="Indonesia"
+                />
+                <label class="form-check-label" for="Indonesia"> 印尼 </label>
+              </div>
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="India"
+                />
+                <label class="form-check-label" for="India"> 印度 </label>
+              </div>
+            </div>
+          </aside>
+
+          <!-- right -->
+          <section class="products col-sm-9">
+            <div class="row g-3 overflow-hidden">
+              <div class="search-bar">
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="form-control productsSearchBar"
+                    placeholder="Search Product"
+                    aria-label="Search Product"
+                    aria-describedby="button-addon2"
+                  />
+                  <button
+                    class="btn btn-outline-secondary productsSearchBtn"
+                    type="button"
+                  >
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="products-content">
+                <div class="row"></div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- sign up form -->
+    <!-- login form -->
+    <div id="form-placeholder"></div>
+
+    <!-- footer -->
+    <footer class="footer">
+      <div id="footer-placeholder"></div>
+    </footer>
+
+    <!-- arrow up -->
+    <div class="arrow-up-section text-center">
+      <a class="arrow-fa" href="#">
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </div>
+
+    <!-- toast -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+      <div
+        id="liveToast"
+        class="toast bg-light-subtle"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        delay="100"
+      >
+        <div class="d-flex align-items-center">
+          <div class="toast-body">加入購物車成功</div>
+          <button
+            type="button"
+            class="btn-close me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- shop Canvas -->
+    <div class="shopCanvas">
+      <button
+        class="btn btn-secondary shopCanvasBtn"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight"
+      >
+        <i class="fa-solid fa-store fa-lg shopCanvasIcon"></i>
+      </button>
+
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">購物車</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="container">
+            <div class="productsTitle"></div>
+            <div class="shopCanvasProducts"></div>
+          </div>
+          <button type="button" class="btn btn-primary goToShopCartBtn">
+            Go to ShopCart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- common -->
+    <!-- <script src="./js/navbar.js" type="module"></script> -->
+    <!-- <script src="./js/footer.js" type="module"></script> -->
+    <!-- <script src="./js/RenderForms.js" type="module" defer></script> -->
+    <!-- <script src="./js/form.js" type="module"></script>
+    <script src="./js/signUpForm.js" type="module"></script> -->
+    <!-- <script src="./js/common/browserStorage.js" type="module"></script> -->
+    <!-- <script src="./js/shopCartCanvas.js" type="module"></script> -->
+
+    <!-- <script src="./js/main_product/products.js" type="module"></script> -->
+    <!-- self -->
+    <script
+      src="./js/main_product/mainProducts.js"
+      type="module"
+      defer
+    ></script>
+
+    <!-- third party -->
+    <script src="../node_modules/lightbox2/dist/js/lightbox-plus-jquery.js"></script>
+    <script src="./js/bootstrap/bootstrap.bundle.min.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/38880d85d8.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      defer
+    ></script>
+  </body>
+</html>

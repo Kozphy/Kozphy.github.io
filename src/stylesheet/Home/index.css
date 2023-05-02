@@ -1,0 +1,49 @@
+img {
+  object-fit: cover;
+}
+
+/* header */
+/* .sticky {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+header {
+  background: white;
+}
+
+header .announcement {
+  background-color: antiquewhite;
+  padding: 10px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* navbar */
+/* left */
+/* header .navbar .fefe-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.navbar .navbar-brand {
+  display: flex;
+  align-items: end;
+} */
+
+/* right */
+/* .navbar .nav-link {
+  transition: all 1s;
+  margin: 0px 5px;
+  transform: skew(-15deg, 0deg);
+}
+.navbar .nav-link:hover {
+  border-radius: 5px;
+  background-color: coral;
+}
+
+.navbar .shop-cart {
+  padding-left: 0px 3px;
+} */

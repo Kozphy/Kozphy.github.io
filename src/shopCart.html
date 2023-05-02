@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact</title>
+
+    <!-- common -->
+    <link rel="stylesheet" href="./stylesheet/reset.css" />
+    <link rel="stylesheet" href="./stylesheet/navbar.css" />
+    <link rel="stylesheet" href="./stylesheet/footer.css" />
+    <link rel="stylesheet" href="./stylesheet/common.css" />
+    <link rel="stylesheet" href="./stylesheet/scroll-top.css" />
+    <link rel="stylesheet" href="./stylesheet/shopCanvas.css" />
+    <link rel="stylesheet" href="./stylesheet/login_signup_form.css" />
+
+    <!-- self -->
+    <link rel="stylesheet" href="./stylesheet/shopCart/shopCartTitle.css" />
+    <link rel="stylesheet" href="./stylesheet/shopCart/shopCartContent.css" />
+
+    <!-- third party -->
+    <link rel="stylesheet" href="./stylesheet/bootstrap/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/38880d85d8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="sticky">
+        <div id="nav-placeholder"></div>
+      </header>
+
+      <!-- shopCart title
+      <div class="container mt-3">
+        <div class="row text-center">
+          <h1>ShopCart</h1>
+        </div>
+      </div> -->
+
+      <!-- shopCart  -->
+      <section class="shopCart p-5" style="background-color: #eee">
+        <div class="container">
+          <div class="shopCartTitle d-flex justify-content-between mb-2">
+            <h1 class="lead text-black">Shopping Cart</h1>
+            <div class="d-flex align-items-center">
+              <label
+                class="text-nowrap me-2"
+                id="sortShopCartLabel"
+                for="sortShopCart"
+                >sort by:
+              </label>
+              <select
+                id="sortShopCart"
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected>none</option>
+                <option value="increment">遞增</option>
+                <option value="decrease">遞減</option>
+              </select>
+            </div>
+          </div>
+          <!-- shopCart Content -->
+          <div class="row border border-bottom border-1">
+            <div class="card mb-3">
+              <!-- <div class="card-title pt-3">
+                <div class="row gx-3">
+                  <div class="col-md-3 text-center"></div>
+
+                  <div class="col-md-4 text-center">
+                    <h3>產品名稱</h3>
+                  </div>
+
+                  <div class="col-md-2 text-center">
+                    <h3>數量</h3>
+                  </div>
+
+                  <div class="col-md-2 text-center">
+                    <h3>價格</h3>
+                  </div>
+                </div>
+              </div> -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="shopCartProducts col-md-12"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- shopCartSum -->
+          <div class="row mb-3">
+            <div class="card shadow">
+              <div class="card-body p-4">
+                <div class="row">
+                  <div
+                    class="col-lg-3 d-flex flex-column justify-content-between"
+                  >
+                    <div
+                      class="paymentMethod mb-lg-0 mb-3 visaCard fa-lg p-3 border rounded"
+                    >
+                      <i class="fa-brands fa-cc-visa"></i>
+                      Visa
+                    </div>
+                    <div
+                      class="paymentMethod mb-lg-0 mb-3 masterCard fa-lg p-3 border rounded"
+                    >
+                      <i class="fa-brands fa-cc-mastercard"> </i>
+                      Master Card
+                    </div>
+                  </div>
+                  <div
+                    class="col-lg-3 d-flex flex-column justify-content-between"
+                  >
+                    <div
+                      class="paymentMethod mb-lg-0 mb-3 creditCard fa-lg p-3 border rounded"
+                    >
+                      <i class="fa-brands fa-cc-paypal"> </i>
+                      PayPal
+                    </div>
+                    <div
+                      class="paymentMethod mb-lg-0 mb-3 cashOnDelivery fa-lg p-3 border rounded"
+                    >
+                      <i class="fa-solid fa-wallet"> </i>
+                      Cash On delivery
+                    </div>
+                  </div>
+
+                  <div class="col-lg-3"></div>
+                  <div class="col-lg-3">
+                    <div class="shopCartSum">
+                      <div class="d-flex justify-content-between">
+                        <p class="subTotal">subTotal:</p>
+                        <p class="subTotalPrice">0</p>
+                      </div>
+                      <div
+                        class="d-flex justify-content-between border-bottom mb-3"
+                      >
+                        <p class="shipping">shipping:</p>
+                        <p class="shippingFee">0</p>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <p class="total">Total (tax include):</p>
+                        <p class="totalPrice">0</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- shopCartCheckOut -->
+      <div class="shopCartCheckout">
+        <div class="container bg-light rounded p-5">
+          <div class="row mb-3">
+            <div class="input-group px-0">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="please input coupon"
+              />
+              <button type="button" class="btn btn-outline-success btn-lg">
+                Apply
+              </button>
+            </div>
+          </div>
+          <div class="row">
+            <button class="btn btn-secondary p-2">Checkout</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- sign up form -->
+      <!-- login form -->
+      <div id="form-placeholder"></div>
+
+      <!-- footer -->
+      <footer class="footer">
+        <div id="footer-placeholder"></div>
+      </footer>
+
+      <!-- arrow up -->
+      <div class="arrow-up-section text-center">
+        <a class="arrow-fa" href="#">
+          <i class="fa-solid fa-arrow-up"></i>
+        </a>
+      </div>
+
+      <!-- shop Canvas -->
+      <div class="shopCanvas">
+        <button
+          class="btn btn-secondary shopCanvasBtn"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasRight"
+          aria-controls="offcanvasRight"
+        >
+          <i class="fa-solid fa-store fa-lg shopCanvasIcon"></i>
+        </button>
+
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasRight"
+          aria-labelledby="offcanvasRightLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">購物車</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <div class="container">
+              <div class="productsTitle"></div>
+              <div class="shopCanvasProducts"></div>
+            </div>
+            <button type="button" class="btn btn-primary goToShopCartBtn">
+              Go to ShopCart
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!-- self -->
+  <script src="./js/shopCart/shopCart.js" type="module" defer></script>
+</html>

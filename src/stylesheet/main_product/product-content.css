@@ -1,0 +1,9 @@
+/* products */
+img {
+  object-fit: cover;
+  height: 250px;
+}
+
+.products .input-group {
+  flex-wrap: nowrap;
+}
