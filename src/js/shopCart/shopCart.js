@@ -60,26 +60,36 @@ class ShopCart extends btnAddRm {
     let productsInStorage = this.getProductsFromStorage();
     let DOMProductTitle = this.getDOMProductTitle(e);
     let newDatas;
-    // console.log(productsInStorage);
 
-    // TODO: refactor
-    if (oper == "+") {
-      for (let product of productsInStorage) {
-        if (DOMProductTitle == product.Title) {
-          let unitPrice = Number(product.Price) / Number(product.Counter);
+    for (let product of productsInStorage) {
+      if (DOMProductTitle == product.Title) {
+        let unitPrice = Number(product.Price) / Number(product.Counter);
+        if (oper == "+") {
           product.Counter = Number(product.Counter) + 1;
-          product.Price = unitPrice * product.Counter;
-        }
-      }
-    } else if (oper == "-") {
-      for (let product of productsInStorage) {
-        if (DOMProductTitle == product.Title) {
-          let unitPrice = Number(product.Price) / Number(product.Counter);
+        } else if (oper == "-") {
           product.Counter = Number(product.Counter) - 1;
-          product.Price = unitPrice * product.Counter;
         }
+        product.Price = unitPrice * product.Counter;
       }
     }
+
+    // if (oper == "+") {
+    //   for (let product of productsInStorage) {
+    //     if (DOMProductTitle == product.Title) {
+    //       let unitPrice = Number(product.Price) / Number(product.Counter);
+    //       product.Counter = Number(product.Counter) + 1;
+    //       product.Price = unitPrice * product.Counter;
+    //     }
+    //   }
+    // } else if (oper == "-") {
+    //   for (let product of productsInStorage) {
+    //     if (DOMProductTitle == product.Title) {
+    //       let unitPrice = Number(product.Price) / Number(product.Counter);
+    //       product.Counter = Number(product.Counter) - 1;
+    //       product.Price = unitPrice * product.Counter;
+    //     }
+    //   }
+    // }
 
     newDatas = productsInStorage;
 
