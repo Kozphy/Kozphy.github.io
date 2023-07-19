@@ -60,6 +60,7 @@ class ShopCart extends btnAddRm {
     let productsInStorage = this.getProductsFromStorage();
     let DOMProductTitle = this.getDOMProductTitle(e);
     let newDatas;
+    // console.log(productsInStorage);
 
     // TODO: refactor
     if (oper == "+") {
@@ -70,7 +71,6 @@ class ShopCart extends btnAddRm {
           product.Price = unitPrice * product.Counter;
         }
       }
-      newDatas = productsInStorage;
     } else if (oper == "-") {
       for (let product of productsInStorage) {
         if (DOMProductTitle == product.Title) {
@@ -79,8 +79,9 @@ class ShopCart extends btnAddRm {
           product.Price = unitPrice * product.Counter;
         }
       }
-      newDatas = productsInStorage;
     }
+
+    newDatas = productsInStorage;
 
     browserStorage.setStorageData(this.storage, this.storageName, newDatas);
     this.renderPageAndReAttatchEvent();
@@ -174,7 +175,9 @@ class ShopCart extends btnAddRm {
 
     productsInStorage.forEach((product) => {
       let productPrice = Number(product.Price);
+      // console.log(productPrice);
       total += productPrice;
+
       let shopCartHTML = this.getshopCartHTML(product, productPrice);
 
       this.shopCartProducts.innerHTML += shopCartHTML;
