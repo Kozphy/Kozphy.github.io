@@ -73,24 +73,6 @@ class ShopCart extends btnAddRm {
       }
     }
 
-    // if (oper == "+") {
-    //   for (let product of productsInStorage) {
-    //     if (DOMProductTitle == product.Title) {
-    //       let unitPrice = Number(product.Price) / Number(product.Counter);
-    //       product.Counter = Number(product.Counter) + 1;
-    //       product.Price = unitPrice * product.Counter;
-    //     }
-    //   }
-    // } else if (oper == "-") {
-    //   for (let product of productsInStorage) {
-    //     if (DOMProductTitle == product.Title) {
-    //       let unitPrice = Number(product.Price) / Number(product.Counter);
-    //       product.Counter = Number(product.Counter) - 1;
-    //       product.Price = unitPrice * product.Counter;
-    //     }
-    //   }
-    // }
-
     newDatas = productsInStorage;
 
     browserStorage.setStorageData(this.storage, this.storageName, newDatas);
