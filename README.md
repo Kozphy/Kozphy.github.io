@@ -1,6 +1,6 @@
 # Kozphy.github.io
 
-Static GitHub Pages portfolio for Chao Cheng-You with a three-layer structure:
+Static GitHub Pages portfolio for Zixsa with a three-layer structure:
 
 - `index.html`: professional overview for business, consulting, and international audiences
 - `projects.html`: technical project layer for implementation credibility
