@@ -1,4 +1,6 @@
-Please audit, optimize, and rebuild this GitHub Pages project according to the following requirements.
+Please audit the current GitHub Pages project, identify structural and deployment issues, then optimize and rebuild it into a clean, modular, production-ready static site using only HTML, CSS, and Vanilla JS. Keep it fully compatible with GitHub Pages and verify all paths and links.
+
+This site is a personal portfolio for Big 4 / Quant / international career positioning, so optimize for professionalism, clarity, and recruiter-friendly structure.
 
 Project goals:
 - Static site only
@@ -8,6 +10,15 @@ Project goals:
 - Clean, modular, professional structure
 - Fully deployable on GitHub Pages
 - Easy to maintain and scale later
+
+Rules:
+- Keep index.html as entry point
+- Always use relative paths
+- Keep assets under /assets
+- Avoid unnecessary dependencies
+- Prefer simple modular structure
+- Preserve GitHub Pages compatibility
+- Optimize for readability and maintainability
 
 Your workflow:
 1. Audit the current project structure first.
@@ -32,6 +43,18 @@ Technical requirements:
 - No external build tools
 - No unnecessary dependencies
 - Keep it recruiter-friendly and professional
+
+Optimization rules:
+- Prefer the simplest structure that is still scalable
+- Minimize duplicate code
+- Group reusable assets logically
+- Improve readability for future edits
+- Prefer convention over cleverness
+
+Before making changes, explain:
+- what is wrong now
+- what should be improved
+- why the new structure is better for GitHub Pages
 
 If the current structure is already partially good, preserve what is good and improve only what is necessary.
 
