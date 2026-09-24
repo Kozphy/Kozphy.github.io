@@ -1,0 +1,10 @@
+# GitHub Pages runs Jekyll on this repo, which would otherwise publish every Markdown file as a page.
+exclude:
+  - agent.md
+  - notes/
+  - README.md
+  - package.json
+  - package-lock.json
+  - node_modules/
+  - .htmlvalidate.json
+  - scripts/

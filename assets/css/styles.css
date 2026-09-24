@@ -227,6 +227,7 @@ select {
   padding: 0.78rem 1rem;
   border-radius: 999px;
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .theme-toggle:hover,
@@ -616,6 +617,185 @@ html[data-theme="light"] .button-primary {
   grid-column: span 2;
 }
 
+.pillar-grid,
+.project-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.pillar-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.project-grid.single {
+  grid-template-columns: 1fr;
+}
+
+.pillar-card,
+.project-card {
+  display: grid;
+  gap: 0.9rem;
+  align-content: start;
+  padding: 1.6rem;
+}
+
+.pillar-card h3,
+.project-card h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  line-height: 1.2;
+}
+
+.pillar-card p,
+.project-summary,
+.project-facts dd,
+.project-note {
+  margin: 0;
+  color: var(--muted);
+}
+
+.project-card .card-head {
+  margin-bottom: 0;
+}
+
+.project-card .eyebrow {
+  margin-bottom: 0.45rem;
+}
+
+.project-card .panel-label {
+  margin-top: 0.2rem;
+}
+
+.project-card[hidden] {
+  display: none;
+}
+
+.ci-badge {
+  flex-shrink: 0;
+  height: 20px;
+  width: auto;
+}
+
+.project-facts {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-facts dt {
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.project-facts dd {
+  margin: 0;
+}
+
+.project-note {
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface-soft) 92%, transparent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.card-link,
+.inline-link {
+  color: var(--accent-strong);
+  font-weight: 600;
+}
+
+.card-link {
+  justify-self: start;
+  margin-top: 0.2rem;
+}
+
+.card-link::after,
+.inline-link::after {
+  content: " \2192";
+}
+
+.card-link:hover,
+.card-link:focus-visible,
+.inline-link:hover,
+.inline-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.pillar-links {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-button {
+  padding: 0.6rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--surface) 80%, transparent);
+  color: var(--muted);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.filter-button:hover,
+.filter-button:focus-visible,
+.filter-button[aria-pressed="true"] {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent-soft) 88%, transparent);
+}
+
+.section-actions {
+  margin-top: 1.5rem;
+}
+
+.not-found {
+  min-height: 60vh;
+  display: grid;
+  align-content: center;
+}
+
+.not-found h1 {
+  margin: 0;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -637,7 +817,8 @@ html[data-theme="light"] .button-primary {
   .site-nav a,
   .theme-toggle,
   .button,
-  .contact-card {
+  .contact-card,
+  .filter-button {
     transition: none;
     transform: none;
     opacity: 1;
@@ -655,7 +836,9 @@ html[data-theme="light"] .button-primary {
   .card-grid,
   .skill-grid,
   .quant-grid,
-  .project-detail-grid {
+  .project-detail-grid,
+  .pillar-grid,
+  .project-grid {
     grid-template-columns: 1fr;
   }
 

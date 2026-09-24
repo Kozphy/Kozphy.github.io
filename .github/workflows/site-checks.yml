@@ -1,0 +1,38 @@
+name: Site checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate HTML
+        run: npx --yes html-validate@9 "*.html"
+
+      - name: Check project data syntax
+        run: node --check assets/js/projects-data.js && node --check assets/js/main.js
+
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          fail: true
+          args: >-
+            --no-progress
+            --root-dir ${{ github.workspace }}
+            --exclude 'linkedin\.com'
+            --exclude 'img\.shields\.io'
+            --max-retries 3
+            '*.html'

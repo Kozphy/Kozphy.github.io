@@ -3,23 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quant Trading Infrastructure | Zixsa</title>
   <meta
     name="description"
-    content="Quantitative trading methodology, backtesting discipline, risk controls, and execution architecture by Chao Cheng-You."
+    content="Zixsa's quant trading infrastructure: point-in-time data, purged walk-forward validation, cost-aware backtesting, risk controls, and multi-exchange execution."
   >
-  <title>Quant Layer | Zixsa</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link rel="canonical" href="https://kozphy.github.io/quant.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zixsa">
+  <meta property="og:title" content="Quant Trading Infrastructure | Zixsa">
+  <meta property="og:description" content="Quant research infrastructure that rejects leakage and overfitting before capital is at risk.">
+  <meta property="og:url" content="https://kozphy.github.io/quant.html">
+  <meta property="og:image" content="https://kozphy.github.io/assets/img/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/projects-data.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
   <div class="page-shell quant-shell">
     <header class="site-header">
       <div class="container nav-shell">
         <a class="brand" href="index.html">
-          <span class="brand-mark">CY</span>
+          <span class="brand-mark">ZX</span>
           <span class="brand-text">
             <strong>Zixsa</strong>
-            <span>Structured systems across finance and software</span>
+            <span>Reliability engineering for financial systems</span>
           </span>
         </a>
 
@@ -40,21 +50,21 @@
       <section class="hero section reveal quant-hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Quant Layer</p>
-            <h1>Deep technical framing for strategy, execution, and risk.</h1>
+            <p class="eyebrow">Core Specialty</p>
+            <h1>Quant infrastructure that earns trust before capital does.</h1>
             <p class="hero-tagline">
-              This layer is intentionally more precise and data-oriented, reflecting how I think about trading systems under live constraints.
+              The same control mindset I apply to CI and financial systems, applied to trading research: reject leakage, price in costs, gate deployment on out-of-sample evidence, and keep a kill switch within reach.
             </p>
           </div>
 
           <aside class="hero-panel panel terminal-panel">
-            <p class="panel-label">System Snapshot</p>
+            <p class="panel-label">Research Pipeline</p>
             <div class="terminal-lines">
-              <span>signal_engine = rule_based</span>
-              <span>backtest_horizon = multi_year</span>
-              <span>risk_model = sizing + stops + allocation</span>
-              <span>execution = event_driven + api_routing</span>
-              <span>runtime = python | go | docker | linux</span>
+              <span>data = point_in_time + schema_checks</span>
+              <span>validation = purged_walk_forward + oos</span>
+              <span>costs = spread | slippage | commission | delay</span>
+              <span>gate = PASS | FAIL  # policy, not opinion</span>
+              <span>deploy = shadow -&gt; paper -&gt; kill_switch</span>
             </div>
           </aside>
         </div>
@@ -64,59 +74,73 @@
         <div class="container quant-grid">
           <article class="panel quant-card">
             <p class="eyebrow">01</p>
-            <h2>Strategy Design</h2>
-            <p>Rule-based trading logic is designed to make decision paths explicit, testable, and easier to refine.</p>
+            <h2>Data Integrity</h2>
+            <p>A strategy is only as honest as the data it was allowed to see.</p>
             <ul class="detail-list">
-              <li>Translate discretionary observations into structured entry and exit conditions.</li>
-              <li>Define signal generation concepts that can be observed and evaluated consistently.</li>
-              <li>Reduce ambiguity so performance can be analyzed at the rule level rather than by intuition alone.</li>
+              <li>Point-in-time data layer so features only use information available at decision time.</li>
+              <li>Schema and data-quality contracts run before any research step.</li>
+              <li>Dedicated tests that reject look-ahead leakage instead of trusting convention.</li>
             </ul>
           </article>
 
           <article class="panel quant-card">
             <p class="eyebrow">02</p>
-            <h2>Backtesting Methodology</h2>
+            <h2>Validation Methodology</h2>
             <p>Backtesting is treated as a discipline, not a marketing exercise.</p>
             <ul class="detail-list">
-              <li>Use multi-year historical data to observe strategy behavior across different volatility and trend regimes.</li>
-              <li>Actively avoid overfitting by keeping rule complexity constrained and interpreting results conservatively.</li>
-              <li>Track performance metrics such as Sharpe ratio, drawdown, and consistency rather than focusing on headline returns alone.</li>
+              <li>Purged walk-forward cross-validation to stop overlap between training and test windows.</li>
+              <li>Out-of-sample evaluation feeds a PASS / FAIL policy gate before anything is deployed.</li>
+              <li>A committed fail-demo config proves the gate rejects weak strategies, not just approves good ones.</li>
             </ul>
           </article>
 
           <article class="panel quant-card">
             <p class="eyebrow">03</p>
-            <h2>Risk Management</h2>
-            <p>Risk controls are part of the system design from the start, not an afterthought.</p>
+            <h2>Cost-Aware Backtesting</h2>
+            <p>Edge that disappears after costs was never edge.</p>
             <ul class="detail-list">
-              <li>Position sizing is tied to exposure discipline and expected strategy variance.</li>
-              <li>Stop-loss logic is applied to limit uncontrolled downside during adverse moves.</li>
-              <li>Capital allocation is managed at the portfolio level to prevent concentration risk.</li>
+              <li>Backtests model spread, slippage, commission, execution delay, and liquidity caps.</li>
+              <li>Rule complexity stays constrained and results are interpreted conservatively.</li>
+              <li>Consistency and drawdown matter more than headline returns.</li>
             </ul>
           </article>
 
           <article class="panel quant-card">
             <p class="eyebrow">04</p>
-            <h2>Execution Architecture</h2>
-            <p>Execution infrastructure is built to respond reliably in real time.</p>
+            <h2>Risk &amp; Live Controls</h2>
+            <p>Risk controls are part of the system design from the start, not an afterthought.</p>
             <ul class="detail-list">
-              <li>Event-driven system design keeps data intake, signal evaluation, and order execution modular.</li>
-              <li>Real-time market data processing supports timely strategy decisions and monitoring.</li>
-              <li>API-based execution links system logic directly with exchange environments while preserving control visibility.</li>
+              <li>Position sizing, stop-loss logic, and portfolio-level allocation limits.</li>
+              <li>Risk metrics implemented in code: Sharpe ratio, VaR, Expected Shortfall, and max drawdown.</li>
+              <li>Shadow and paper deployment, drift detection, human approval, and a kill switch.</li>
             </ul>
           </article>
 
           <article class="panel quant-card">
             <p class="eyebrow">05</p>
-            <h2>System Stack</h2>
-            <p>The stack is selected for speed of implementation, operational flexibility, and system clarity.</p>
+            <h2>Execution &amp; Stack</h2>
+            <p>Freelance execution work since 2021, built to respond reliably in real time.</p>
             <ul class="detail-list">
-              <li>Python for research workflows, orchestration, and rapid iteration.</li>
-              <li>Go for performance-oriented components and service reliability.</li>
-              <li>Docker for consistent deployment environments across local and cloud workflows.</li>
-              <li>Linux and WSL for development ergonomics and production-aligned system behavior.</li>
+              <li>Event-driven architecture keeps data intake, signal evaluation, and order execution modular.</li>
+              <li>Exchange API integrations including Binance, KuCoin, and Gate.io.</li>
+              <li>Python for research and orchestration, Go for performance-critical services, Docker and Linux for reproducible deployment.</li>
             </ul>
           </article>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="container section-heading">
+          <p class="eyebrow">Public Evidence</p>
+          <h2>Open-source research framework</h2>
+        </div>
+
+        <div class="container">
+          <div class="project-grid single" data-projects="quant" data-projects-detailed>
+            <noscript>
+              <p>Project cards need JavaScript. See the <a class="inline-link" href="https://github.com/Kozphy/ForexTraderWithBloombergAccess-public">FX Quant Research Framework</a> on GitHub.</p>
+            </noscript>
+          </div>
         </div>
       </section>
 
@@ -125,12 +149,12 @@
           <div class="panel callout-panel">
             <div>
               <p class="eyebrow">Context</p>
-              <h2>The quant layer sits on top of a broader systems and compliance foundation.</h2>
-              <p>Return to the main profile for cross-functional context, or review the projects layer for practical implementation narratives.</p>
+              <h2>Quant sits on top of a broader reliability and controls foundation.</h2>
+              <p>Return to the main profile for the full positioning, or review every project with its evidence.</p>
             </div>
             <div class="button-row">
-              <a class="button button-secondary" href="index.html">Back to Main Site</a>
-              <a class="button button-primary" href="projects.html">Back to Projects</a>
+              <a class="button button-secondary" href="index.html">Back to Home</a>
+              <a class="button button-primary" href="projects.html">All Projects</a>
             </div>
           </div>
         </div>
@@ -141,24 +165,19 @@
       <div class="container footer-grid">
         <div>
           <p class="eyebrow">Contact</p>
-          <h2>Available for technical, quant, and systems-focused opportunities.</h2>
+          <h2>Available for quant infrastructure, trading systems, and research platform roles.</h2>
         </div>
 
         <div class="contact-list">
           <a class="panel contact-card" href="https://github.com/Kozphy" target="_blank" rel="noreferrer">
             <span class="panel-label">GitHub</span>
             <strong>github.com/Kozphy</strong>
-            <span>Code, repositories, and portfolio source</span>
+            <span>Source, CI history, and architecture docs</span>
           </a>
-          <a class="panel contact-card" href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noreferrer">
+          <a class="panel contact-card" href="https://www.linkedin.com/in/z-ixsa-4843b2262" target="_blank" rel="noreferrer">
             <span class="panel-label">LinkedIn</span>
-            <strong>linkedin.com/in/your-linkedin</strong>
-            <span>Professional profile placeholder</span>
-          </a>
-          <a class="panel contact-card" href="mailto:your.email@example.com">
-            <span class="panel-label">Email</span>
-            <strong>your.email@example.com</strong>
-            <span>Direct contact placeholder</span>
+            <strong>linkedin.com/in/z-ixsa-4843b2262</strong>
+            <span>Professional profile and direct messages</span>
           </a>
         </div>
       </div>

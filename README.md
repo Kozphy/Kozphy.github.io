@@ -1,68 +1,71 @@
 # Kozphy.github.io
 
-Static GitHub Pages portfolio for Zixsa with a three-layer structure:
+Portfolio site for **Zixsa**: CI & agent reliability for financial systems, with quant trading infrastructure as a core specialty and a technology-risk mindset throughout.
 
-- `index.html`: professional overview for business, consulting, and international audiences
-- `projects.html`: technical project layer for implementation credibility
-- `quant.html`: deeper quantitative trading and systems methodology layer
+Live site: [kozphy.github.io](https://kozphy.github.io)
 
-## File Structure
+## Pages
+
+- `index.html`: positioning, technology-risk lens, three pillars, featured work, experience, skills
+- `projects.html`: every public flagship system with problem, approach, evidence, and a pillar filter
+- `quant.html`: quant research methodology (data integrity, validation, costs, risk, execution)
+- `404.html`: served by GitHub Pages for missing paths
+
+## Structure
 
 ```text
 Kozphy.github.io/
 |- index.html
 |- projects.html
 |- quant.html
-|- styles.css
-|- script.js
-`- README.md
+|- 404.html
+|- sitemap.xml
+|- robots.txt
+|- _config.yml              # excludes notes and docs from the published site
+|- assets/
+|  |- css/styles.css
+|  |- js/projects-data.js   # single source of truth for project cards
+|  |- js/main.js            # theme toggle, project rendering, filters, reveal animations
+|  `- img/                  # favicon.svg, og-card.png (social preview)
+`- .github/workflows/site-checks.yml
 ```
 
-## What This Site Is
+Plain HTML, CSS, and vanilla JavaScript. No framework, package manager, or build step.
 
-This repository contains a deploy-ready portfolio site built with:
+## Adding or editing a project
 
-- HTML
-- CSS
-- Vanilla JavaScript
+Edit `assets/js/projects-data.js`. Each entry needs `repo`, `title`, `pillar` (`reliability`, `financial`, or `quant`), `summary`, `problem`, `approach`, `stack`, and `evidence`. Optional fields:
 
-There is no framework, package manager, or build step. The site is suitable for GitHub Pages because every page is served directly as static files from the repository root.
+- `featured: true` shows the project on the home page
+- `ci: "ci.yml"` adds a live GitHub Actions status badge (only add it for repos whose CI is green)
+- `note` shows a short scope or licensing note
 
-## Features
+Update the metric cards in `index.html` and `projects.html` if the project count changes.
 
-- Three-layer portfolio navigation: Main, Projects, Quant
-- Sticky navigation bar
-- Dark and light mode toggle
-- Smooth scrolling
-- Section reveal transitions
-- Responsive layout for desktop and mobile
+## Quality checks
 
-## Deploying To GitHub Pages
+`.github/workflows/site-checks.yml` runs on every push and pull request:
 
-If this repository is the user or organization site named `Kozphy.github.io`, deployment is straightforward:
+- `html-validate` on all pages (config in `.htmlvalidate.json`)
+- `node --check` on the JavaScript files
+- `lychee` link checking (LinkedIn and shields.io are excluded because they block bots)
 
-1. Push the repository to GitHub.
-2. Open the repository settings.
-3. Go to `Pages`.
-4. Set the source to `Deploy from a branch`.
-5. Select the `main` branch and `/ (root)` folder.
-6. Save the settings.
+Run the HTML check locally with:
 
-GitHub Pages will then publish the site from the root static files in this repository.
+```bash
+npx html-validate@9 "*.html"
+```
 
-## Editing Content
+## Local preview
 
-Update the content directly in the HTML files:
+Serve the folder so paths behave like GitHub Pages:
 
-- `index.html`: hero, about, experience, skills, contact
-- `projects.html`: project case studies
-- `quant.html`: strategy, backtesting, risk, execution, stack
+```bash
+python -m http.server 8000
+```
 
-Update the shared presentation and interaction files here:
+Then open `http://localhost:8000`.
 
-- `styles.css`: colors, layout, spacing, typography, responsive behavior
-- `script.js`: theme toggle, reveal animations, sticky header behavior
+## Deployment
 
-## Local Preview
-
-You can preview the site by opening `index.html` in a browser, or by serving the folder with any lightweight static server.
+GitHub Pages deploys from the `main` branch, root folder. Pushing to `main` publishes the site.

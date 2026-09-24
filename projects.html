@@ -3,23 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Zixsa</title>
   <meta
     name="description"
-    content="Technical portfolio projects by Chao Cheng-You, focused on trading systems, crypto execution infrastructure, and financial analysis tooling."
+    content="Zixsa's public systems: CI failure orchestration, AI evaluation for finance, FinOps controls, financial data automation, underwriting workflows, and FX quant research, each with verifiable evidence."
   >
-  <title>Projects | Zixsa</title>
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <link rel="canonical" href="https://kozphy.github.io/projects.html">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Zixsa">
+  <meta property="og:title" content="Projects | Zixsa">
+  <meta property="og:description" content="Public systems across CI reliability, financial systems, and quant research, each with tests, CI, and honest scope notes.">
+  <meta property="og:url" content="https://kozphy.github.io/projects.html">
+  <meta property="og:image" content="https://kozphy.github.io/assets/img/og-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/projects-data.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
   <div class="page-shell">
     <header class="site-header">
       <div class="container nav-shell">
         <a class="brand" href="index.html">
-          <span class="brand-mark">CY</span>
+          <span class="brand-mark">ZX</span>
           <span class="brand-text">
             <strong>Zixsa</strong>
-            <span>Structured systems across finance and software</span>
+            <span>Reliability engineering for financial systems</span>
           </span>
         </a>
 
@@ -40,27 +50,27 @@
       <section class="hero section reveal page-hero">
         <div class="container hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Projects Layer</p>
-            <h1>Technical projects built around reliability, structure, and execution.</h1>
+            <p class="eyebrow">Projects</p>
+            <h1>Systems with evidence attached.</h1>
             <p class="hero-tagline">
-              This layer focuses on system framing: the problem, the architecture decision, the technical stack, and the operating result.
+              Each project states the problem, how the system works, and what you can verify in the repository: tests, CI runs, sample outputs, and honest scope notes.
             </p>
           </div>
 
           <aside class="hero-panel panel">
-            <p class="panel-label">Portfolio Intent</p>
+            <p class="panel-label">Portfolio Snapshot</p>
             <div class="metric-grid compact">
               <div class="metric-card">
-                <span class="metric-value">3</span>
-                <span class="metric-label">Core project narratives</span>
+                <span class="metric-value">6</span>
+                <span class="metric-label">Public flagship systems</span>
               </div>
               <div class="metric-card">
-                <span class="metric-value">API</span>
-                <span class="metric-label">Execution and data integration</span>
+                <span class="metric-value">100+</span>
+                <span class="metric-label">Test files across repos</span>
               </div>
               <div class="metric-card">
-                <span class="metric-value">Ops</span>
-                <span class="metric-label">Real-world constraints and monitoring</span>
+                <span class="metric-value">4 of 6</span>
+                <span class="metric-label">With live CI status badges</span>
               </div>
             </div>
           </aside>
@@ -68,105 +78,19 @@
       </section>
 
       <section class="section reveal">
-        <div class="container stack-grid">
-          <article class="panel project-detail-card">
-            <div class="card-head">
-              <div>
-                <p class="eyebrow">Project 01</p>
-                <h2>Quant Trading System</h2>
-              </div>
-              <span class="pill">Strategy Infrastructure</span>
-            </div>
+        <div class="container">
+          <div class="filter-bar" role="group" aria-label="Filter projects by pillar">
+            <button class="filter-button" type="button" data-project-filter="all" aria-pressed="true">All</button>
+            <button class="filter-button" type="button" data-project-filter="reliability" aria-pressed="false">CI &amp; Agent Reliability</button>
+            <button class="filter-button" type="button" data-project-filter="financial" aria-pressed="false">Financial Systems &amp; Tech Risk</button>
+            <button class="filter-button" type="button" data-project-filter="quant" aria-pressed="false">Quant Trading Infrastructure</button>
+          </div>
 
-            <div class="project-detail-grid">
-              <div>
-                <h3>Problem</h3>
-                <p>Manual trading lacks consistency and scalability.</p>
-              </div>
-              <div>
-                <h3>Approach</h3>
-                <p>Convert discretionary logic into rule-based strategies that can be tested and refined systematically.</p>
-              </div>
-              <div>
-                <h3>System</h3>
-                <p>Event-driven architecture with real-time data streams, signal evaluation, and controlled execution logic.</p>
-              </div>
-              <div>
-                <h3>Tech</h3>
-                <p>Python, Go, REST API, Docker.</p>
-              </div>
-              <div>
-                <h3>Result</h3>
-                <p>Backtested across multi-year data with controlled drawdowns and clearer strategy behavior under varying market regimes.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="panel project-detail-card">
-            <div class="card-head">
-              <div>
-                <p class="eyebrow">Project 02</p>
-                <h2>Crypto Execution Bot</h2>
-              </div>
-              <span class="pill">Multi-Exchange Execution</span>
-            </div>
-
-            <div class="project-detail-grid">
-              <div>
-                <h3>Problem</h3>
-                <p>Need reliable multi-exchange execution.</p>
-              </div>
-              <div>
-                <h3>Approach</h3>
-                <p>Design a unified API layer for order execution, status polling, and monitoring so exchange differences stay abstracted.</p>
-              </div>
-              <div>
-                <h3>System</h3>
-                <p>Real-time order routing, execution confirmation, and position tracking with operational visibility across venues.</p>
-              </div>
-              <div>
-                <h3>Tech</h3>
-                <p>Python and exchange APIs.</p>
-              </div>
-              <div>
-                <h3>Result</h3>
-                <p>Built a stable execution pipeline operating across three exchanges with a clearer control plane for monitoring and recovery.</p>
-              </div>
-            </div>
-          </article>
-
-          <article class="panel project-detail-card">
-            <div class="card-head">
-              <div>
-                <p class="eyebrow">Project 03</p>
-                <h2>Financial Analysis Tool</h2>
-              </div>
-              <span class="pill">Research Automation</span>
-            </div>
-
-            <div class="project-detail-grid">
-              <div>
-                <h3>Problem</h3>
-                <p>Manual financial analysis is inefficient.</p>
-              </div>
-              <div>
-                <h3>Approach</h3>
-                <p>Automate repetitive metric calculations and standardize how outputs are visualized for faster interpretation.</p>
-              </div>
-              <div>
-                <h3>System</h3>
-                <p>Data ingestion, processing, and visualization pipeline that reduces repetitive analyst workflow.</p>
-              </div>
-              <div>
-                <h3>Tech</h3>
-                <p>Python, Pandas, Matplotlib.</p>
-              </div>
-              <div>
-                <h3>Result</h3>
-                <p>Improved the speed of financial insight generation and made repeat analysis easier to structure and review.</p>
-              </div>
-            </div>
-          </article>
+          <div class="project-grid" data-projects="all" data-projects-detailed>
+            <noscript>
+              <p>Project cards need JavaScript. Browse the repositories directly on <a class="inline-link" href="https://github.com/Kozphy">GitHub</a>.</p>
+            </noscript>
+          </div>
         </div>
       </section>
 
@@ -175,10 +99,10 @@
           <div class="panel callout-panel">
             <div>
               <p class="eyebrow">Deep Dive</p>
-              <h2>Go deeper into methodology, risk controls, and execution architecture.</h2>
-              <p>The quant layer is written in a more technical voice for readers evaluating strategy design and systems rigor.</p>
+              <h2>See how the quant research stack is validated.</h2>
+              <p>The quant page covers data integrity, walk-forward validation, cost modeling, and live risk controls in more technical detail.</p>
             </div>
-            <a class="button button-primary" href="quant.html">Open Quant Layer</a>
+            <a class="button button-primary" href="quant.html">Open Quant Page</a>
           </div>
         </div>
       </section>
@@ -188,24 +112,19 @@
       <div class="container footer-grid">
         <div>
           <p class="eyebrow">Contact</p>
-          <h2>Open to conversations around engineering, trading systems, and technical operations.</h2>
+          <h2>Want a walkthrough of any of these systems? Reach out.</h2>
         </div>
 
         <div class="contact-list">
           <a class="panel contact-card" href="https://github.com/Kozphy" target="_blank" rel="noreferrer">
             <span class="panel-label">GitHub</span>
             <strong>github.com/Kozphy</strong>
-            <span>Code, repositories, and portfolio source</span>
+            <span>Source, CI history, and architecture docs</span>
           </a>
-          <a class="panel contact-card" href="https://www.linkedin.com/in/your-linkedin" target="_blank" rel="noreferrer">
+          <a class="panel contact-card" href="https://www.linkedin.com/in/z-ixsa-4843b2262" target="_blank" rel="noreferrer">
             <span class="panel-label">LinkedIn</span>
-            <strong>linkedin.com/in/your-linkedin</strong>
-            <span>Professional profile placeholder</span>
-          </a>
-          <a class="panel contact-card" href="mailto:your.email@example.com">
-            <span class="panel-label">Email</span>
-            <strong>your.email@example.com</strong>
-            <span>Direct contact placeholder</span>
+            <strong>linkedin.com/in/z-ixsa-4843b2262</strong>
+            <span>Professional profile and direct messages</span>
           </a>
         </div>
       </div>
