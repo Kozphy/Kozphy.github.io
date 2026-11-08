@@ -14,17 +14,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-
       - name: Validate HTML
         run: npx --yes html-validate@9 "*.html"
-
-      - name: Check project data syntax
-        run: node --check assets/js/projects-data.js && node --check assets/js/main.js
-
+      - name: Check JavaScript syntax
+        run: |
+          node --check assets/js/projects-data.js
+          node --check assets/js/main.js
+          node --check assets/js/case-model.js
+          node --check assets/js/portfolio.js
+      - name: Verify case calculations and scenario exports
+        run: node --test tests/case-model.test.cjs
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:

@@ -1,71 +1,37 @@
-# Kozphy.github.io
+# Zixsa — financial-data portfolio
 
-Portfolio site for **Zixsa**: CI & agent reliability for financial systems, with quant trading infrastructure as a core specialty and a technology-risk mindset throughout.
+Live site: https://kozphy.github.io/
 
-Live site: [kozphy.github.io](https://kozphy.github.io)
+Static HTML, CSS, and vanilla JavaScript. No runtime dependencies or build step.
 
-## Pages
+## Visitor journey
 
-- `index.html`: positioning, technology-risk lens, three pillars, featured work, experience, skills
-- `projects.html`: every public flagship system with problem, approach, evidence, and a pillar filter
-- `quant.html`: quant research methodology (data integrity, validation, costs, risk, execution)
-- `404.html`: served by GitHub Pages for missing paths
+- index.html — positioning, case preview, selected work, contact.
+- case.html — scenario controls, calculation results, sensitivity table, CSV export, and Python reproduction steps.
+- report.html — self-contained base-case report; downloadable for offline reading and printable from the browser.
+- projects.html — selected financial-data and AI-evaluation evidence with limits.
+- quant.html — secondary research-methodology notes.
+- 404.html — fallback page.
 
-## Structure
+## Calculation contract
 
-```text
-Kozphy.github.io/
-|- index.html
-|- projects.html
-|- quant.html
-|- 404.html
-|- sitemap.xml
-|- robots.txt
-|- _config.yml              # excludes notes and docs from the published site
-|- assets/
-|  |- css/styles.css
-|  |- js/projects-data.js   # single source of truth for project cards
-|  |- js/main.js            # theme toggle, project rendering, filters, reveal animations
-|  `- img/                  # favicon.svg, og-card.png (social preview)
-`- .github/workflows/site-checks.yml
-```
+The browser model mirrors the simplified Python case at source revision a35303cb179f2d30aa17780e368af55c3f8a476b of Kozphy/financial-analysis-tool. It uses a CFO-minus-capex proxy, not full unlevered FCFF. Base: $143.49/share; selected sensitivity corners: $114.84 and $193.47. These are illustrative model outputs.
 
-Plain HTML, CSS, and vanilla JavaScript. No framework, package manager, or build step.
+assets/data/apple-fy2025.csv is the original repository case snapshot. The JavaScript model contains an explicit fixed snapshot derived from it. If inputs change, update both and the expected-output tests together.
 
-## Adding or editing a project
+## Maintain and verify
 
-Edit `assets/js/projects-data.js`. Each entry needs `repo`, `title`, `pillar` (`reliability`, `financial`, or `quant`), `summary`, `problem`, `approach`, `stack`, and `evidence`. Optional fields:
+- assets/css/portfolio.css — shared design and responsive rules.
+- assets/js/case-model.js — pure financial calculation and scenario CSV generation.
+- assets/js/portfolio.js — accessible controls, chart, table, and download interaction.
+- tests/case-model.test.cjs — expected outputs, input validation, and scenario-export checks.
 
-- `featured: true` shows the project on the home page
-- `ci: "ci.yml"` adds a live GitHub Actions status badge (only add it for repos whose CI is green)
-- `note` shows a short scope or licensing note
+Run: node --test tests/case-model.test.cjs
 
-Update the metric cards in `index.html` and `projects.html` if the project count changes.
+Preview from the repository root with: python -m http.server 8000
 
-## Quality checks
+The existing GitHub Actions workflow validates HTML, JavaScript syntax, model checks, and links. GitHub Pages publishes main from the root. All local asset paths are relative.
 
-`.github/workflows/site-checks.yml` runs on every push and pull request:
+## Evidence boundaries
 
-- `html-validate` on all pages (config in `.htmlvalidate.json`)
-- `node --check` on the JavaScript files
-- `lychee` link checking (LinkedIn and shields.io are excluded because they block bots)
-
-Run the HTML check locally with:
-
-```bash
-npx html-validate@9 "*.html"
-```
-
-## Local preview
-
-Serve the folder so paths behave like GitHub Pages:
-
-```bash
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000`.
-
-## Deployment
-
-GitHub Pages deploys from the `main` branch, root folder. Pushing to `main` publishes the site.
+Educational case data and synthetic evaluation evidence are labeled. No client delivery, independent assurance, production adoption, trading returns, or live-model performance is claimed. A passing calculation test is not validation of the model assumptions.
