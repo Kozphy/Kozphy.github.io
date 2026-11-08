@@ -76,9 +76,11 @@
       byId('export-scenario').disabled = true;
     }
   }
-  form.addEventListener('submit', event => event.preventDefault());
   form.addEventListener('input', render);
-  form.addEventListener('reset', () => setTimeout(render, 0));
+  byId('reset-scenario').addEventListener('click', () => {
+    fields.wacc.value = '8'; fields.terminal.value = '2.5'; fields.shift.value = '0';
+    render();
+  });
   byId('export-scenario').addEventListener('click', () => {
     const url = URL.createObjectURL(new Blob([model.scenarioCsv(read())], { type: 'text/csv;charset=utf-8' }));
     const anchor = document.createElement('a');
