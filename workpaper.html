@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sample control workpaper | Zixsa</title>
+  <meta name="description" content="Sample Risk Advisory-style workpaper: objective, risks, controls, tests, exceptions, and conclusion for a financial data workflow.">
+  <link rel="canonical" href="https://kozphy.github.io/workpaper.html">
+  <link rel="icon" href="assets/img/portfolio-mark.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sample control workpaper | Zixsa">
+  <meta property="og:description" content="Risk → control → test → exception → conclusion for a financial CSV validation workflow.">
+  <meta property="og:url" content="https://kozphy.github.io/workpaper.html">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">zx</span>
+        <span><strong>Zixsa</strong><small>Risk · Finance · Python</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="case.html">The case</a>
+        <a href="projects.html">Work</a>
+        <a href="workpaper.html" aria-current="page">Workpaper</a>
+        <a class="nav-contact" href="index.html#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="page-intro">
+      <p class="eyebrow">Sample workpaper · WP-FIN-001</p>
+      <h1>Risk → control → test →<br><em>exception → conclusion.</em></h1>
+      <p class="lead">
+        A portfolio illustration of how I document a financial-data control review.
+        Not a client engagement file and not independent assurance.
+      </p>
+    </div>
+
+    <div class="notice">
+      <p><strong>Engagement type:</strong> educational portfolio sample.</p>
+      <p><strong>Process under review:</strong> ingest → validate → quarantine exceptions → clean → report for a financial CSV export.</p>
+      <p><strong>Reference implementation:</strong> <a href="https://github.com/Kozphy/financial-data-automation">financial-data-automation</a> + interactive analysis case on this site.</p>
+    </div>
+
+    <section class="section" aria-labelledby="objective-title">
+      <p class="eyebrow">1 · Objective</p>
+      <h2 id="objective-title">What we are trying to prevent.</h2>
+      <p class="lead narrow-lead">Prevent silent data loss, unreviewed corrections, and untraceable totals when a financial CSV is transformed into a report.</p>
+    </section>
+
+    <section class="section" aria-labelledby="risks-title">
+      <p class="eyebrow">2 · Key risks</p>
+      <h2 id="risks-title">Where the process can fail.</h2>
+      <div class="table-scroll">
+        <table>
+          <caption>Risk register · sample</caption>
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Risk</th>
+              <th scope="col">Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">R1</th>
+              <td>Invalid or incomplete source rows enter reporting totals</td>
+              <td>Downstream analysis and decisions inherit bad inputs</td>
+            </tr>
+            <tr>
+              <th scope="row">R2</th>
+              <td>Exception rows are dropped without a review trail</td>
+              <td>Material omissions become invisible to reviewers</td>
+            </tr>
+            <tr>
+              <th scope="row">R3</th>
+              <td>Assumptions are mixed into reported facts</td>
+              <td>Reviewers cannot tell what was measured vs modeled</td>
+            </tr>
+            <tr>
+              <th scope="row">R4</th>
+              <td>Results cannot be reproduced after the fact</td>
+              <td>No reliable reperformance path for QA or audit follow-up</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="controls-title">
+      <p class="eyebrow">3 · Control matrix</p>
+      <h2 id="controls-title">Designed responses.</h2>
+      <div class="table-scroll">
+        <table>
+          <caption>Control matrix · sample</caption>
+          <thead>
+            <tr>
+              <th scope="col">Control</th>
+              <th scope="col">Risk</th>
+              <th scope="col">Type</th>
+              <th scope="col">Owner / evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">C1 Schema + completeness validation before cleaning</th>
+              <td>R1</td>
+              <td>Preventive · automated</td>
+              <td>Validation step output; failing rows never enter clean totals</td>
+            </tr>
+            <tr>
+              <th scope="row">C2 Quarantine with reject reason (no silent drop)</th>
+              <td>R2</td>
+              <td>Detective · automated + review</td>
+              <td>Exception log / quarantine file available for human decision</td>
+            </tr>
+            <tr>
+              <th scope="row">C3 Separate reported inputs from model assumptions</th>
+              <td>R3</td>
+              <td>Preventive · design</td>
+              <td>Case memo + UI labels; assumptions adjustable only in scenario controls</td>
+            </tr>
+            <tr>
+              <th scope="row">C4 Locked expected outputs + reproduction commands</th>
+              <td>R4</td>
+              <td>Detective · automated</td>
+              <td>pytest / case assertions; pinned revision commands on case page</td>
+            </tr>
+            <tr>
+              <th scope="row">C5 Append-only process log</th>
+              <td>R2, R4</td>
+              <td>Detective · automated</td>
+              <td>JSONL / audit-style event trail for reperformance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="tests-title">
+      <p class="eyebrow">4 · Tests performed</p>
+      <h2 id="tests-title">How I would reperform this.</h2>
+      <div class="steps">
+        <article>
+          <span class="step-number">T1 / WALKTHROUGH</span>
+          <h3>Trace one row end-to-end.</h3>
+          <p>Pick a valid row and an invalid row. Confirm only valid rows reach clean totals and invalid rows appear in quarantine with a reason.</p>
+        </article>
+        <article>
+          <span class="step-number">T2 / REPERFORMANCE</span>
+          <h3>Rerun the locked case.</h3>
+          <p>Execute the pinned pytest commands. Confirm FCF proxy 98,767 and base illustrative value $143.49/share still match.</p>
+        </article>
+        <article>
+          <span class="step-number">T3 / EXCEPTION REVIEW</span>
+          <h3>Inspect planted / rejected cases.</h3>
+          <p>For AI evaluation evidence, confirm graders catch planted finance errors and that FAIL triggers when critical-error thresholds are exceeded.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section two-col" aria-labelledby="exceptions-title">
+      <div>
+        <p class="eyebrow">5 · Exceptions</p>
+        <h2 id="exceptions-title">What remains open.</h2>
+        <ul>
+          <li>Sample uses educational / synthetic datasets, not a live client extract.</li>
+          <li>FinOps control design evidence is docs-only in public form.</li>
+          <li>No claim of SOX reliance, ITGC operating effectiveness, or audit opinion.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="eyebrow">6 · Conclusion</p>
+        <h2>Fit for portfolio demonstration.</h2>
+        <p>
+          For the stated educational process, designed controls address R1–R4 with observable evidence paths.
+          A hiring manager can reperform the analysis case and review the automation/AI-evaluation repos.
+          This does not constitute assurance over any production system.
+        </p>
+      </div>
+    </section>
+
+    <div class="actions">
+      <a class="button" href="case.html">Reperform the case ↗</a>
+      <a class="button secondary" href="projects.html">Evidence pack</a>
+      <a class="button secondary" href="resume.html">One-page résumé</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© 2026 Zixsa · Taiwan<br>Technology risk + financial analysis portfolio.</span>
+      <div class="footer-links">
+        <a href="https://github.com/Kozphy">GitHub</a>
+        <a href="https://www.linkedin.com/in/z-ixsa-4843b2262">LinkedIn</a>
+        <a href="quant.html">Risk notes</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

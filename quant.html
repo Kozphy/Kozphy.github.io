@@ -1,2 +1,79 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Research notes | Zixsa</title><meta name="description" content="A portfolio research checklist for data integrity, backtesting, costs, and execution controls."><link rel="canonical" href="https://kozphy.github.io/quant.html"><link rel="icon" href="assets/img/portfolio-mark.svg" type="image/svg+xml"><meta property="og:type" content="website"><meta property="og:title" content="Research notes | Zixsa"><meta property="og:description" content="A portfolio research checklist for data integrity, backtesting, costs, and execution controls."><meta property="og:url" content="https://kozphy.github.io/quant.html"><link rel="stylesheet" href="assets/css/portfolio.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap nav"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">zx</span><span><strong>Zixsa</strong><small>Finance + Python</small></span></a><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="case.html">The case</a><a href="projects.html">Work</a><a class="nav-contact" href="index.html#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav></div></header><main id="main" class="wrap"><div class="page-intro"><p class="eyebrow">Secondary work / research notes</p><h1>Questions to ask<br><em>before trusting a backtest.</em></h1><p class="lead">A methodology checklist for reviewing quantitative research. These notes describe review questions, not verified trading performance or commercial deployment.</p></div><section class="section research-list" aria-label="Research review checklist"><article><h2>1. What could the model know?</h2><p>Check data timestamps, revisions, availability delays, and the boundaries between training and evaluation. Identify leakage before interpreting results.</p></article><article><h2>2. What survives outside the sample?</h2><p>Review the split method, walk-forward design, overlapping observations, and the number of experiments tried. Inspect unsuccessful runs alongside successful ones.</p></article><article><h2>3. Which costs are included?</h2><p>State assumptions for spreads, fees, slippage, execution delay, and liquidity. Stress them instead of treating a frictionless backtest as an outcome.</p></article><article><h2>4. What would stop execution?</h2><p>Define risk limits, approval requirements, monitoring, and a stop procedure. A research result alone does not demonstrate reliable live operation.</p></article></section><div class="notice"><p><strong>Portfolio scope:</strong> no returns, client outcomes, sustained operating history, or production-readiness claims are made by this checklist.</p></div><div class="actions"><a class="button" href="case.html">Explore the financial case ↗</a><a class="button secondary" href="projects.html">Selected work</a></div></main><footer class="site-footer"><div class="wrap footer-inner"><span>© 2026 Zixsa · Taiwan<br>Accounting background. Reproducible portfolio work.</span><div class="footer-links"><a href="https://github.com/Kozphy">GitHub</a><a href="https://www.linkedin.com/in/z-ixsa-4843b2262">LinkedIn</a><a href="quant.html">Research notes</a></div></div></footer></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Risk &amp; markets notes | Zixsa</title>
+  <meta name="description" content="Secondary portfolio notes on data integrity, out-of-sample validation, trading costs, and stop controls for quantitative research review.">
+  <link rel="canonical" href="https://kozphy.github.io/quant.html">
+  <link rel="icon" href="assets/img/portfolio-mark.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Risk & markets notes | Zixsa">
+  <meta property="og:description" content="Review questions for quantitative research: leakage, out-of-sample design, costs, and stop controls.">
+  <meta property="og:url" content="https://kozphy.github.io/quant.html">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">zx</span>
+        <span><strong>Zixsa</strong><small>Risk · Finance · Python</small></span>
+      </a>
+      <nav aria-label="Main navigation"><a href="index.html">Home</a><a href="case.html">Case</a><a href="workpaper.html">Workpaper</a><a href="projects.html">Work</a><a href="resume.html">Résumé</a><a class="nav-contact" href="index.html#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="page-intro">
+      <p class="eyebrow">Secondary work · Risk &amp; markets</p>
+      <h1>Questions before<br><em>trusting a backtest.</em></h1>
+      <p class="lead">
+        These notes support Risk Advisory and markets-control conversations.
+        They are review questions, not verified trading performance or a commercial track record.
+      </p>
+    </div>
+
+    <section class="section research-list" aria-label="Research review checklist">
+      <article>
+        <h2>1. What could the model know?</h2>
+        <p>Check timestamps, revisions, availability delays, and the boundary between training and evaluation. Find leakage before interpreting results.</p>
+      </article>
+      <article>
+        <h2>2. What survives outside the sample?</h2>
+        <p>Review split method, walk-forward design, overlapping windows, and how many experiments were tried. Unsuccessful runs matter as much as successful ones.</p>
+      </article>
+      <article>
+        <h2>3. Which costs are included?</h2>
+        <p>State spreads, fees, slippage, delay, and liquidity assumptions. Stress them instead of treating a frictionless backtest as an outcome.</p>
+      </article>
+      <article>
+        <h2>4. What would stop execution?</h2>
+        <p>Define risk limits, approval requirements, monitoring, and a stop procedure. A research result alone does not demonstrate reliable live operation.</p>
+      </article>
+    </section>
+
+    <div class="notice">
+      <p><strong>Portfolio scope:</strong> no returns claim, no client P&amp;L, no production-readiness claim. For engineering detail, review the public FX research mirror separately.</p>
+    </div>
+
+    <div class="actions">
+      <a class="button" href="https://github.com/Kozphy/ForexTraderWithBloombergAccess-public">FX research framework ↗</a>
+      <a class="button secondary" href="case.html">Primary case evidence</a>
+      <a class="button secondary" href="projects.html">Full evidence pack</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© 2026 Zixsa · Taiwan<br>Technology risk + financial analysis portfolio.</span>
+      <div class="footer-links">
+        <a href="https://github.com/Kozphy">GitHub</a>
+        <a href="https://www.linkedin.com/in/z-ixsa-4843b2262">LinkedIn</a>
+        <a href="quant.html">Risk notes</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
