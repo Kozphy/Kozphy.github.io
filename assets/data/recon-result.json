@@ -1,0 +1,29 @@
+{
+  "label": "Educational CSV reconciliation \u2014 not client work",
+  "method": "Exact match on (value_date, amount_usd); remainder quarantined",
+  "before": {
+    "source_rows": 10,
+    "bank_rows": 8,
+    "matched_keys": 0,
+    "unmatched_source": 10,
+    "unmatched_bank": 8,
+    "amount_delta_usd": -15665.25,
+    "match_rate_pct": 0.0,
+    "quarantine_rows": 11
+  },
+  "after": {
+    "source_rows": 10,
+    "bank_rows": 8,
+    "matched_keys": 7,
+    "unmatched_source": 3,
+    "unmatched_bank": 1,
+    "amount_delta_usd": -15665.25,
+    "match_rate_pct": 63.6,
+    "quarantine_rows": 4
+  },
+  "improvement": {
+    "open_items_reduced": 7,
+    "match_rate_pct_points": 63.6,
+    "quarantine_vs_silent_fail": "Unmatched rows written to exception log instead of dropped"
+  }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CSV reconciliation evidence | Zixsa</title>
+  <meta name="description" content="Educational book-vs-bank CSV reconciliation with before/after match rate, quarantined exceptions, and a reproducible Python script.">
+  <link rel="canonical" href="https://kozphy.github.io/recon.html">
+  <link rel="icon" href="assets/img/portfolio-mark.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="CSV reconciliation evidence | Zixsa">
+  <meta property="og:description" content="Match rate 0% → 63.6%. Open items 11 → 4. Exceptions quarantined, not dropped.">
+  <meta property="og:url" content="https://kozphy.github.io/recon.html">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">zx</span>
+        <span><strong>Zixsa</strong><small>Tech Risk · Controls · FA</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="workpaper.html">Workpaper</a>
+        <a href="case.html">Case</a>
+        <a href="recon.html" aria-current="page">Recon</a>
+        <a href="resume.html">Résumé</a>
+        <a class="nav-contact" href="index.html#waitlist">Join waitlist</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="page-intro">
+      <p class="eyebrow">Educational proof · not client work</p>
+      <h1>CSV reconciliation<br><em>with before / after metrics.</em></h1>
+      <p class="lead">
+        Book ledger vs bank extract. Exact match on (value date, amount).
+        Unmatched rows go to a quarantine exception log — they are not silently dropped.
+      </p>
+    </div>
+
+    <div class="notice">
+      <p><strong>Label:</strong> synthetic educational sample for interview screens.</p>
+      <p><strong>Method:</strong> exact key match; remainder quarantined with disposition notes.</p>
+      <p><strong>Reproduce:</strong> <code>python scripts/recon_validate.py</code> from the site repository root.</p>
+    </div>
+
+    <section class="section" aria-labelledby="metrics-title">
+      <p class="eyebrow">Results</p>
+      <h2 id="metrics-title">What changed after the control.</h2>
+      <div class="role-grid metrics">
+        <article class="role-card">
+          <h3>Match rate</h3>
+          <p><strong>0% → 63.6%</strong> of distinct (date, amount) keys closed by exact match.</p>
+        </article>
+        <article class="role-card">
+          <h3>Open items</h3>
+          <p><strong>11 → 4</strong> remaining keys written to the exception log.</p>
+        </article>
+        <article class="role-card">
+          <h3>Source / bank rows</h3>
+          <p>10 book rows · 8 bank rows in the sample files.</p>
+        </article>
+        <article class="role-card">
+          <h3>Disposition</h3>
+          <p>Quarantine with side (source_only / bank_only) — no silent fail.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="files-title">
+      <p class="eyebrow">Artifacts</p>
+      <h2 id="files-title">Inspect the inputs and outputs.</h2>
+      <div class="research-list">
+        <article>
+          <h3>Inputs</h3>
+          <p>
+            <a href="assets/data/recon-source.csv">recon-source.csv</a> ·
+            <a href="assets/data/recon-bank.csv">recon-bank.csv</a>
+          </p>
+        </article>
+        <article>
+          <h3>Outputs</h3>
+          <p>
+            <a href="assets/data/recon-result.json">recon-result.json</a> ·
+            <a href="assets/data/recon-exceptions.csv">recon-exceptions.csv</a>
+          </p>
+        </article>
+        <article>
+          <h3>Script</h3>
+          <p><a href="https://github.com/Kozphy/Kozphy.github.io/blob/main/scripts/recon_validate.py">scripts/recon_validate.py</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="limits-title">
+      <p class="eyebrow">Engagement vs education</p>
+      <h2 id="limits-title">What this is not.</h2>
+      <p class="lead narrow-lead">
+        On a real engagement I would define population and sampling, confirm cut-off and FX rules,
+        investigate open items with process owners, and document preparer / reviewer sign-off.
+        This page shows the <em>shape</em> of a recon control with measurable before/after metrics.
+      </p>
+      <div class="actions">
+        <a class="button" href="workpaper.html">Related workpaper</a>
+        <a class="button secondary" href="index.html">Back to home</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© 2026 Zixsa · Taiwan<br>Educational reconciliation sample.</span>
+      <div class="footer-links">
+        <a href="workpaper.html">Workpaper</a>
+        <a href="case.html">Case</a>
+        <a href="resume.html">Résumé</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

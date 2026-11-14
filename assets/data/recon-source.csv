@@ -1,0 +1,11 @@
+txn_id,book,counterparty,amount_usd,value_date,currency
+T-1001,GL-Cash,Bank-A,12500.00,2025-09-01,USD
+T-1002,GL-Cash,Bank-A,-3200.50,2025-09-01,USD
+T-1003,GL-Cash,Vendor-X,-890.00,2025-09-02,USD
+T-1004,GL-Cash,Bank-B,4500.00,2025-09-02,USD
+T-1005,GL-Cash,Payroll,-15200.00,2025-09-03,USD
+T-1006,GL-Cash,Bank-A,2100.00,2025-09-03,USD
+T-1007,GL-Cash,Vendor-Y,-640.25,2025-09-04,USD
+T-1008,GL-Cash,Bank-B,980.00,2025-09-04,USD
+T-1009,GL-Cash,Refund,250.00,2025-09-05,USD
+T-1010,GL-Cash,Bank-A,-1100.00,2025-09-05,USD

@@ -19,15 +19,15 @@
     <div class="wrap nav">
       <a class="brand" href="index.html">
         <span class="brand-mark" aria-hidden="true">zx</span>
-        <span><strong>Zixsa</strong><small>Risk · Finance · Python</small></span>
+        <span><strong>Zixsa</strong><small>Tech Risk · Controls · FA</small></span>
       </a>
       <nav aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="case.html">Case</a>
         <a href="workpaper.html">Workpaper</a>
+        <a href="case.html">Case</a>
         <a href="projects.html" aria-current="page">Work</a>
         <a href="resume.html">Résumé</a>
-        <a class="nav-contact" href="index.html#contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        <a class="nav-contact" href="index.html#waitlist">Join waitlist</a>
       </nav>
     </div>
   </header>
@@ -38,7 +38,7 @@
       <h1>Proof before<br><em>the interview.</em></h1>
       <p class="lead">
         Each item states the hiring track it supports and what the evidence does <em>not</em> prove.
-        Start with the interactive case if you only have ten minutes.
+        Start with the workpaper and recon if you only have ten minutes; the FA case is secondary.
       </p>
     </div>
 
@@ -51,9 +51,22 @@
         <p><strong>Evidence:</strong> on-site workpaper mapped to the financial CSV validation process and analysis case.</p>
         <p><strong>Scope:</strong> educational portfolio sample. Not a client workpaper or assurance opinion.</p>
         <a class="project-link" href="workpaper.html">Open the workpaper ↗</a>
-        <a class="project-link" href="resume.html">One-page résumé ↗</a>
+        <a class="project-link" href="recon.html">CSV recon metrics ↗</a>
       </article>
 
+      <article class="project">
+        <span class="tag">Data quality · reconciliation</span>
+        <h3>Educational CSV reconciliation</h3>
+        <p><strong>Problem:</strong> book and bank extracts diverge; silent drops hide material open items.</p>
+        <p><strong>Approach:</strong> exact match on (value date, amount); quarantine unmatched keys with disposition notes.</p>
+        <p><strong>Evidence:</strong> match rate 0% → 63.6%; open items 11 → 4; exception CSV + JSON metrics + reproducible script.</p>
+        <p><strong>Scope:</strong> synthetic educational sample. Not a client engagement or paid proof.</p>
+        <a class="project-link" href="recon.html">Open recon evidence ↗</a>
+        <a class="project-link" href="assets/data/recon-result.json">View metrics JSON ↗</a>
+      </article>
+    </section>
+
+    <section class="section project-grid" aria-label="Financial analysis evidence">
       <article class="project">
         <span class="tag">Financial Analyst</span>
         <h3>Financial-analysis workflow</h3>
@@ -63,19 +76,6 @@
         <p><strong>Scope:</strong> educational single-company portfolio case. Not independent assurance or a client deliverable.</p>
         <a class="project-link" href="case.html">Explore the case ↗</a>
         <a class="project-link" href="https://github.com/Kozphy/financial-analysis-tool">Open the repository ↗</a>
-      </article>
-    </section>
-
-    <section class="section project-grid" aria-label="AI and data controls">
-      <article class="project">
-        <span class="tag">Risk Advisory · AI / model risk</span>
-        <h3>EvalForge</h3>
-        <p><strong>Problem:</strong> financial AI answers can look correct while calculating badly or inventing standards.</p>
-        <p><strong>Approach:</strong> deterministic graders, FIN-* taxonomy, regression against a baseline, and policy gates.</p>
-        <p><strong>Evidence:</strong> evaluation report, planted-error catches on a synthetic offline set, documented limits.</p>
-        <p><strong>Scope:</strong> synthetic offline benchmark. Does not prove live-model production performance.</p>
-        <a class="project-link" href="https://github.com/Kozphy/EvalForge">Inspect EvalForge ↗</a>
-        <a class="project-link" href="https://github.com/Kozphy/EvalForge/blob/main/docs/portfolio-positioning.md">Evidence limits ↗</a>
       </article>
 
       <article class="project">
@@ -87,21 +87,34 @@
       </article>
     </section>
 
-    <section class="section project-grid three" aria-label="Additional controls evidence">
+    <section class="section project-grid" aria-label="AI and automation controls">
       <article class="project">
-        <span class="tag">Risk Advisory · FinOps controls</span>
-        <h3>FinOps Decision &amp; Control</h3>
-        <p><strong>Controls angle:</strong> FOCUS-aligned allocation narrative, approval gates, segregation of duties, hash-chained audit language.</p>
-        <p><strong>Scope:</strong> docs-only public showcase; source is private. Treat as design evidence, not runnable code.</p>
-        <a class="project-link" href="https://github.com/Kozphy/finops-cloud-cost-platform-public">Inspect docs showcase ↗</a>
+        <span class="tag">Adjacent · AI / model risk</span>
+        <h3>EvalForge</h3>
+        <p><strong>Problem:</strong> financial AI answers can look correct while calculating badly or inventing standards.</p>
+        <p><strong>Approach:</strong> deterministic graders, FIN-* taxonomy, regression against a baseline, and policy gates.</p>
+        <p><strong>Evidence:</strong> evaluation report, planted-error catches on a synthetic offline set, documented limits.</p>
+        <p><strong>Scope:</strong> synthetic offline benchmark. Does not prove live-model production performance.</p>
+        <a class="project-link" href="https://github.com/Kozphy/EvalForge">Inspect EvalForge ↗</a>
+        <a class="project-link" href="https://github.com/Kozphy/EvalForge/blob/main/docs/portfolio-positioning.md">Evidence limits ↗</a>
       </article>
 
       <article class="project">
         <span class="tag">Tech Risk · automation governance</span>
         <h3>CI Failure Orchestrator</h3>
         <p><strong>Controls angle:</strong> fail-closed repair, policy gates, retry budgets, durable audit. A green test is not silent write access.</p>
-        <p><strong>Scope:</strong> engineering system with extensive tests/workflows. Useful for ITGC / change-control conversations, not a finance deliverable by itself.</p>
+        <p><strong>Scope:</strong> engineering system with extensive tests/workflows. Useful for change-control conversations.</p>
         <a class="project-link" href="https://github.com/Kozphy/ci-failure-orchestrator">Inspect orchestrator ↗</a>
+      </article>
+    </section>
+
+    <section class="section project-grid" aria-label="Additional controls evidence">
+      <article class="project">
+        <span class="tag">Risk Advisory · FinOps controls</span>
+        <h3>FinOps Decision &amp; Control</h3>
+        <p><strong>Controls angle:</strong> FOCUS-aligned allocation narrative, approval gates, segregation of duties, hash-chained audit language.</p>
+        <p><strong>Scope:</strong> docs-only public showcase; source is private. Treat as design evidence, not runnable code.</p>
+        <a class="project-link" href="https://github.com/Kozphy/finops-cloud-cost-platform-public">Inspect docs showcase ↗</a>
       </article>
 
       <article class="project">
@@ -117,9 +130,9 @@
         <p class="eyebrow">How to brief a hiring panel</p>
         <h2>Match the repo to the seat.</h2>
         <ul>
+          <li><strong>Technology Risk / Risk Advisory:</strong> workpaper + recon + financial-data-automation</li>
+          <li><strong>Internal Audit support:</strong> workpaper + exception log + walkthrough script</li>
           <li><strong>Financial Analyst:</strong> case.html + financial-analysis-tool</li>
-          <li><strong>Risk Advisory:</strong> EvalForge + financial-data-automation + FinOps docs</li>
-          <li><strong>Technology Risk / ITGC:</strong> CI Failure Orchestrator + EvalForge</li>
           <li><strong>Remote trial task:</strong> ask for a CSV check + short exception memo</li>
         </ul>
       </div>
@@ -136,11 +149,11 @@
       <div>
         <p class="eyebrow">Next conversation</p>
         <h2>Send the role track. I’ll send the matching walkthrough.</h2>
-        <p>Risk Advisory, Financial Analyst, Tech Risk, or remote financial-data engineering—tell me which, plus location and visa constraints.</p>
+        <p>Technology Risk, Risk Advisory, Internal Audit, or Financial Analysis — tell me which, plus location and remote policy.</p>
       </div>
       <div class="actions">
         <a class="button" href="https://www.linkedin.com/in/z-ixsa-4843b2262">Contact on LinkedIn <span aria-hidden="true">↗</span></a>
-        <a class="button secondary" href="case.html">Open the case</a>
+        <a class="button secondary" href="workpaper.html">Open the workpaper</a>
       </div>
     </div>
   </main>
