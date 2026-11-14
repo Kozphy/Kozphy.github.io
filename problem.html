@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Problem | Checktrail</title>
+  <meta name="description" content="Which silent failure before sign-off is yours? Affirm the Checktrail problem hypothesis.">
+  <link rel="canonical" href="https://kozphy.github.io/problem.html">
+  <link rel="icon" href="assets/img/portfolio-mark.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Problem | Checktrail">
+  <meta property="og:description" content="Affirm which automation failure mode hits you before sign-off.">
+  <meta property="og:url" content="https://kozphy.github.io/problem.html">
+  <meta property="og:image" content="https://kozphy.github.io/assets/img/og-card.png">
+  <link rel="stylesheet" href="assets/css/portfolio.css">
+  <script src="assets/js/validate-events.js" defer></script>
+  <script src="assets/js/waitlist.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">ct</span>
+        <span><strong>Checktrail</strong><small>Demand validation</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="problem.html" aria-current="page">Problem</a>
+        <a href="demo.html">Demo</a>
+        <a href="waitlist.html">Waitlist</a>
+        <a class="nav-contact" href="interview.html">Book interview</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="page-intro">
+      <nav class="funnel-strip" aria-label="Validation funnel">
+        <span>1 Home</span>
+        <span aria-current="step">2 Problem</span>
+        <span>3 Demo</span>
+        <span>4 Interview</span>
+      </nav>
+      <p class="eyebrow">Hypothesis</p>
+      <h1>Silent failures before<br><em>anyone signs.</em></h1>
+      <p class="lead">
+        We’re testing whether these modes are real, frequent, and owned by someone with budget.
+        Check what matches. Then talk.
+      </p>
+    </div>
+
+    <div class="notice">
+      <p><strong>Hypothesis:</strong> buyers recognize silent CSV/agent drops, verbal exception close, and missing reperformable packs — and rank this above “another GRC suite.”</p>
+      <p><strong>Metric:</strong> which modes get affirmed · interview conversion from affirmers.</p>
+    </div>
+
+    <section class="section" aria-labelledby="modes-title">
+      <p class="eyebrow">Failure modes</p>
+      <h2 id="modes-title">Which of these is yours?</h2>
+      <form
+        class="waitlist-form"
+        data-waitlist-form
+        data-form-kind="problem"
+        action="https://formspree.io/f/xdegapgp"
+        method="POST"
+        novalidate
+      >
+        <fieldset class="mode-list">
+          <legend class="eyebrow">Failure modes</legend>
+          <label>
+            <input type="checkbox" data-fail="csv_silent_drop" value="csv_silent_drop">
+            <span><strong>CSV / ledger rows drop silently</strong> Totals look fine. Reviewer cannot reperform what was removed.</span>
+          </label>
+          <label>
+            <input type="checkbox" data-fail="agent_ungraded" value="agent_ungraded">
+            <span><strong>Agent answers look right, calculate wrong</strong> No offline grade before sign-off.</span>
+          </label>
+          <label>
+            <input type="checkbox" data-fail="verbal_exception" value="verbal_exception">
+            <span><strong>Exceptions close in chat / meetings</strong> No disposition trail.</span>
+          </label>
+          <label>
+            <input type="checkbox" data-fail="no_evidence_pack" value="no_evidence_pack">
+            <span><strong>No workpaper-shaped pack</strong> Second person cannot reperform the run.</span>
+          </label>
+          <label>
+            <input type="checkbox" data-fail="not_my_problem" value="not_my_problem">
+            <span><strong>Not my problem</strong> Useful signal — helps kill the wrong wedge.</span>
+          </label>
+        </fieldset>
+
+        <div class="fit-grid stack-gap">
+          <label class="waitlist-field">
+            <span>Work email</span>
+            <input type="email" name="email" required maxlength="254" autocomplete="email" placeholder="you@company.com">
+          </label>
+          <label class="waitlist-field">
+            <span>Company</span>
+            <input type="text" name="company" maxlength="120" autocomplete="organization" placeholder="Company">
+          </label>
+          <label class="waitlist-field">
+            <span>Role</span>
+            <input type="text" name="role" maxlength="80" autocomplete="organization-title" placeholder="Controller · FinOps · AI ops">
+          </label>
+          <label class="waitlist-field">
+            <span>Name</span>
+            <input type="text" name="name" maxlength="100" autocomplete="name" placeholder="Your name">
+          </label>
+        </div>
+        <label class="waitlist-field stack-gap">
+          <span>Optional: last time this bit you</span>
+          <input type="text" name="pain" maxlength="500" placeholder="One line">
+        </label>
+        <input type="hidden" name="source" value="/problem.html">
+        <input type="hidden" name="_subject" value="Checktrail problem affirm">
+        <label class="hp" aria-hidden="true"><span>Leave blank</span><input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label>
+        <button class="button" type="submit">This is my problem → book interview</button>
+        <p class="micro" data-waitlist-status role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <div class="actions">
+      <a class="button secondary" href="demo.html">Skip to demo</a>
+      <a class="button secondary" href="interview.html">Book interview directly</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© 2026 Checktrail</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="demo.html">Demo</a>
+        <a href="interview.html">Interview</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

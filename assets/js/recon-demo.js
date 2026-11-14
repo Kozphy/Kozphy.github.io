@@ -398,7 +398,29 @@
         'Evidence pack exported (JSON + log). SHA-256: ' + hash.slice(0, 16) + '…';
       $('#recon-status').classList.remove('error');
       $('#pack-hash').textContent = hash;
+      unlockPilotCta(hash);
     });
+  }
+
+  function unlockPilotCta(hash) {
+    var gate = $('#pilot-gate');
+    if (gate) {
+      gate.hidden = false;
+      try {
+        gate.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } catch (e) {
+        /* ignore */
+      }
+    }
+    try {
+      sessionStorage.setItem('checktrail-demo-exported', '1');
+      sessionStorage.setItem('checktrail-demo-sha', hash || '');
+    } catch (e) {
+      /* ignore */
+    }
+    if (typeof window.ctTrack === 'function') {
+      window.ctTrack('demo_export', { sha256: (hash || '').slice(0, 16) });
+    }
   }
 
   function readFile(file) {
@@ -439,6 +461,14 @@
   }
 
   function wire() {
+    if (typeof window.ctTrack === 'function') window.ctTrack('demo_view', {});
+    try {
+      if (sessionStorage.getItem('checktrail-demo-exported') === '1') {
+        unlockPilotCta(sessionStorage.getItem('checktrail-demo-sha') || '');
+      }
+    } catch (e) {
+      /* ignore */
+    }
     $('#load-sample').addEventListener('click', loadSample);
     $('#run-gate').addEventListener('click', function () {
       if (!state.sourceText || !state.bankText) {

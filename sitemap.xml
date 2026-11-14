@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://kozphy.github.io/</loc></url>
+  <url><loc>https://kozphy.github.io/problem.html</loc></url>
+  <url><loc>https://kozphy.github.io/demo.html</loc></url>
+  <url><loc>https://kozphy.github.io/interview.html</loc></url>
+  <url><loc>https://kozphy.github.io/waitlist.html</loc></url>
   <url><loc>https://kozphy.github.io/pricing.html</loc></url>
   <url><loc>https://kozphy.github.io/about.html</loc></url>
   <url><loc>https://kozphy.github.io/founder.html</loc></url>
-  <url><loc>https://kozphy.github.io/recon.html</loc></url>
   <url><loc>https://kozphy.github.io/workpaper.html</loc></url>
-  <url><loc>https://kozphy.github.io/projects.html</loc></url>
 </urlset>

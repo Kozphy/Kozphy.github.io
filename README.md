@@ -1,24 +1,23 @@
 # Checktrail
 
-Company site: https://kozphy.github.io/
+Company / demand-validation site: https://kozphy.github.io/
 
-**Business:** fail-closed evidence systems for finance & AI automation (gates → quarantine → evidence packs).
+**Goal:** learn customer demand (interviews, design partners, WTP) — not employment conversion.
 
-Static HTML/CSS/JS. GitHub Pages from `main`.
+## Funnel
 
-## Structure
+| Path | Job |
+|------|-----|
+| `/` | Attention → book interview |
+| `/problem.html` | Affirm failure modes |
+| `/demo.html` | Export pack → unlock pilot intent |
+| `/interview.html` | Calendar / slot request (learning) |
+| `/waitlist.html` | Soft demand only |
+| `/pricing.html` | Anchor price; deposit/LOI = WTP |
 
-| Path | Role |
-|------|------|
-| `/` | Company homepage + pilot waitlist |
-| `/pricing.html` | Pilot + team pricing |
-| `/about.html` | Company |
-| `/founder.html` | Founder (Zixsa) |
-| `/recon.html` · `/workpaper.html` | Product demos / evidence schema |
-| `/career/` | Personal hiring archive (not the business) |
-| `/checktrail/` | Redirect → `/` |
+`/recon.html` redirects to `/demo.html`. `/career/` is hiring archive (robots disallowed).
 
-Waitlist: Formspree (`assets/js/waitlist.js` → `https://formspree.io/f/xdegapgp`). HTML POST fallback if JS is off.
+Waitlist / interview / pilot / problem forms → Formspree `https://formspree.io/f/xdegapgp`.
 
 ## Evidence boundaries
 
