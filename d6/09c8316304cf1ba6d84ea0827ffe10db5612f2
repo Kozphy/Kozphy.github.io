@@ -1,0 +1,33 @@
+workpaper.html
+  s_970ce1d8e4c68a::t_925ef9648af2ee 26
+index.html
+  s_970ce1d8e4c68a::t_3422ef6aaf79d8 55
+quant.html
+  s_970ce1d8e4c68a::t_81c1c2c07fe6a3 24
+resume.html
+  s_970ce1d8e4c68a::t_f51b0d87bc1ac7 23
+case.html
+  s_970ce1d8e4c68a::t_c3d42e8e91b8e8 2
+projects.html
+  s_970ce1d8e4c68a::t_6d5f8ccb42b737 26
+404.html
+  s_970ce1d8e4c68a::t_d74c282e8835b6 20
+recon.html
+  s_970ce1d8e4c68a::t_8ad407ecaed8a4 26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d609c8316304cf1ba6d84ea0827ffe10db5612f2",
+  "prompts": {},
+  "sessions": {
+    "s_970ce1d8e4c68a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "29c84e65-66e4-43aa-89b4-784e9cf3fd4e",
+        "model": "default"
+      },
+      "human_author": "Zixsa <50504962+Kozphy@users.noreply.github.com>"
+    }
+  }
+}
