@@ -1,0 +1,34 @@
+assets/js/waitlist.js
+  s_970ce1d8e4c68a::t_47037ef91a25d0 4-6,8-16,29-32,35-37,40-43,46-50,53-81,84-85,91,93-102,109-115,119-120,122-124,126,130-132,134,136-150,154-156
+pricing.html
+  s_970ce1d8e4c68a::t_31752d59593263 16
+  s_970ce1d8e4c68a::t_3a0c602f215d65 71-133
+README.md
+  s_970ce1d8e4c68a::t_b7167b1aa54aa2 21
+assets/css/portfolio.css
+  s_970ce1d8e4c68a::t_7bf46deaa1118d 27
+index.html
+  h_1d8a7f1e671f32 41
+  s_970ce1d8e4c68a::t_e4a6cb80fc64e7 174-181,184,187-188,191-206,212
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "2a1d33322a878ed75cc0d342a52f175c3a38658c",
+  "prompts": {},
+  "humans": {
+    "h_1d8a7f1e671f32": {
+      "author": "Zixsa <50504962+Kozphy@users.noreply.github.com>"
+    }
+  },
+  "sessions": {
+    "s_970ce1d8e4c68a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "29c84e65-66e4-43aa-89b4-784e9cf3fd4e",
+        "model": "default"
+      },
+      "human_author": "Zixsa <50504962+Kozphy@users.noreply.github.com>"
+    }
+  }
+}
