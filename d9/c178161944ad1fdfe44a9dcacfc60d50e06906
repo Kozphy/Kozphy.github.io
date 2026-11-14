@@ -1,0 +1,21 @@
+docs/linkedin-profile-copy.md
+  s_970ce1d8e4c68a::t_0e6a9e6031ca37 3,9-15,21-28,30-32,34-35,37,40,42-45,47-61
+index.html
+  s_970ce1d8e4c68a::t_2e59790b76c3b4 6-7,11-12,25,32,41-42,44-50,54,57,60-65,67-77,82-156,159-160,165-166,169-170,173-174,177-178,185-187,190-191,199
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d9c178161944ad1fdfe44a9dcacfc60d50e06906",
+  "prompts": {},
+  "sessions": {
+    "s_970ce1d8e4c68a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "29c84e65-66e4-43aa-89b4-784e9cf3fd4e",
+        "model": "default"
+      },
+      "human_author": "Zixsa <50504962+Kozphy@users.noreply.github.com>"
+    }
+  }
+}
