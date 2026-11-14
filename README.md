@@ -18,7 +18,7 @@ Static HTML/CSS/JS. GitHub Pages from `main`.
 | `/career/` | Personal hiring archive (not the business) |
 | `/checktrail/` | Redirect → `/` |
 
-Waitlist: `assets/js/waitlist.js` (set `FORMSPREE_ENDPOINT` for server capture).
+Waitlist: Formspree (`assets/js/waitlist.js` → `https://formspree.io/f/xdegapgp`). HTML POST fallback if JS is off.
 
 ## Evidence boundaries
 

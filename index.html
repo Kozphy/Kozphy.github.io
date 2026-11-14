@@ -38,7 +38,7 @@
         </span>
       </a>
       <nav aria-label="Main navigation">
-        <a href="index.html" aria-current="page">Home</a>
+        <a href="./index.html" aria-current="page">Home</a>
         <a href="#product">Product</a>
         <a href="#proof">Demo</a>
         <a href="pricing.html">Pricing</a>
@@ -171,25 +171,45 @@
           <aside class="waitlist-card" aria-labelledby="form-title">
             <p class="eyebrow">CTA</p>
             <h2 id="form-title">Join the waitlist</h2>
-            <p class="waitlist-lead">Work email + one-line pain. We follow up for a scoped pilot conversation.</p>
-            <form class="waitlist-form" data-waitlist-form novalidate>
+            <p class="waitlist-lead">Tell us where automation fails quietly. I’ll reply within 2 business days.</p>
+            <form
+              class="waitlist-form"
+              data-waitlist-form
+              action="https://formspree.io/f/xdegapgp"
+              method="POST"
+              novalidate
+            >
               <label class="waitlist-field">
                 <span>Work email</span>
-                <input type="email" name="email" autocomplete="email" required placeholder="you@company.com">
+                <input type="email" name="email" autocomplete="email" required maxlength="254" placeholder="you@company.com">
               </label>
               <label class="waitlist-field">
-                <span>Company / team</span>
-                <input type="text" name="company" autocomplete="organization" placeholder="Controllership · FinOps · AI ops">
+                <span>Name</span>
+                <input type="text" name="name" autocomplete="name" maxlength="100" placeholder="Your name">
               </label>
               <label class="waitlist-field">
-                <span>Pain (one line)</span>
-                <input type="text" name="pain" maxlength="200" placeholder="Silent CSV drops / ungraded agent answers / …">
+                <span>Company</span>
+                <input type="text" name="company" autocomplete="organization" maxlength="120" placeholder="Company">
+              </label>
+              <label class="waitlist-field">
+                <span>Role</span>
+                <input type="text" name="role" autocomplete="organization-title" maxlength="80" placeholder="Controllership · FinOps · AI ops">
+              </label>
+              <label class="waitlist-field">
+                <span>What breaks today?</span>
+                <input type="text" name="pain" maxlength="500" placeholder="Silent CSV drops / ungraded agent answers / …">
+              </label>
+              <input type="hidden" name="source" value="/">
+              <input type="hidden" name="_subject" value="Checktrail waitlist">
+              <label class="hp" aria-hidden="true">
+                <span>Leave blank</span>
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
               </label>
               <button class="button" type="submit">Request pilot</button>
               <p class="micro" data-waitlist-status role="status" aria-live="polite"></p>
             </form>
             <p class="micro">
-              Or DM LinkedIn with <code>CHECKTRAIL</code> —
+              Optional: DM LinkedIn with <code>CHECKTRAIL</code> —
               <a href="https://www.linkedin.com/in/z-ixsa-4843b2262">Zixsa</a>.
             </p>
           </aside>

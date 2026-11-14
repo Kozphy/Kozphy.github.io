@@ -1,14 +1,19 @@
 (function () {
   'use strict';
 
-  var LINKEDIN = 'https://www.linkedin.com/in/z-ixsa-4843b2262';
-  var STORAGE_KEY = 'checktrail-waitlist';
+  var FORMSPREE_ENDPOINT = 'https://formspree.io/f/xdegapgp';
+  // Public inbox shown on submit errors (set to the email you monitor).
+  var CONTACT_EMAIL = '';
 
-  // Set ONE of these before marketing push for a real inbox capture:
-  // Formspree: https://formspree.io/f/xxxxxx
-  // Or a mailto address you monitor:
-  var FORMSPREE_ENDPOINT = '';
-  var MAILTO_ADDRESS = '';
+  var MAX = {
+    email: 254,
+    name: 100,
+    company: 120,
+    role: 80,
+    pain: 500
+  };
+
+  var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   function statusEl(form) {
     return form.querySelector('[data-waitlist-status]');
@@ -21,138 +26,134 @@
     el.classList.toggle('error', Boolean(isError));
   }
 
-  function persist(entry) {
-    var list = [];
-    try {
-      list = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      if (!Array.isArray(list)) list = [];
-    } catch (e) {
-      list = [];
-    }
-    list.push(entry);
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-    } catch (e) {
-      /* ignore quota */
-    }
+  function fieldValue(form, name) {
+    var input = form.elements.namedItem(name);
+    if (!input || typeof input.value !== 'string') return '';
+    return input.value.trim();
   }
 
-  function noteText(entry) {
-    return (
-      'CHECKTRAIL pilot request\n' +
-      'Email: ' + entry.email + '\n' +
-      'Company: ' + (entry.company || '(not given)') + '\n' +
-      'Pain: ' + (entry.pain || '(not given)')
-    );
+  function setFieldValue(form, name, value) {
+    var input = form.elements.namedItem(name);
+    if (input && typeof input.value === 'string') input.value = value;
   }
 
-  function copyNote(entry) {
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(noteText(entry));
+  function pageSource() {
+    var path = window.location.pathname || '/';
+    if (path === '/' || path === '' || path.endsWith('/index.html')) return '/';
+    return path;
+  }
+
+  function errorMessage() {
+    if (CONTACT_EMAIL) {
+      return "Something went wrong, email me at " + CONTACT_EMAIL;
+    }
+    return 'Something went wrong, email me via LinkedIn (Zixsa) with CHECKTRAIL.';
+  }
+
+  function validate(form) {
+    var email = fieldValue(form, 'email').slice(0, MAX.email);
+    var name = fieldValue(form, 'name').slice(0, MAX.name);
+    var company = fieldValue(form, 'company').slice(0, MAX.company);
+    var role = fieldValue(form, 'role').slice(0, MAX.role);
+    var pain = fieldValue(form, 'pain').slice(0, MAX.pain);
+
+    setFieldValue(form, 'email', email);
+    setFieldValue(form, 'name', name);
+    setFieldValue(form, 'company', company);
+    setFieldValue(form, 'role', role);
+    setFieldValue(form, 'pain', pain);
+
+    if (!email || !EMAIL_RE.test(email)) {
+      return { ok: false, message: 'Enter a valid work email.', focus: 'email' };
+    }
+    return {
+      ok: true,
+      payload: {
+        email: email,
+        name: name,
+        company: company,
+        role: role,
+        pain: pain,
+        source: pageSource(),
+        _gotcha: fieldValue(form, '_gotcha'),
+        _subject: 'Checktrail waitlist: ' + (company || 'unspecified')
       }
-    } catch (e) {
-      /* ignore */
-    }
+    };
   }
 
-  function openLinkedInNote(entry) {
-    copyNote(entry);
-    window.open(LINKEDIN, '_blank', 'noopener');
-  }
-
-  function openMailto(entry) {
-    var subject = encodeURIComponent('Checktrail pilot request');
-    var body = encodeURIComponent(noteText(entry));
-    window.location.href =
-      'mailto:' + MAILTO_ADDRESS + '?subject=' + subject + '&body=' + body;
-  }
-
-  function submitFormspree(endpoint, entry) {
-    return fetch(endpoint, {
+  function submitFormspree(payload) {
+    return fetch(FORMSPREE_ENDPOINT, {
       method: 'POST',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        email: entry.email,
-        company: entry.company,
-        pain: entry.pain,
-        source: 'kozphy.github.io',
-        _subject: 'Checktrail waitlist'
-      })
+      body: JSON.stringify(payload)
     }).then(function (res) {
-      if (!res.ok) throw new Error('submit_failed');
-      return res;
+      return res.json().catch(function () {
+        return {};
+      }).then(function (data) {
+        if (!res.ok) {
+          var err = new Error((data && data.error) || 'submit_failed');
+          err.status = res.status;
+          throw err;
+        }
+        return data;
+      });
     });
   }
 
   function onSubmit(event) {
     event.preventDefault();
     var form = event.currentTarget;
-    var emailInput = form.querySelector('[name="email"]');
-    var companyInput = form.querySelector('[name="company"]');
-    var painInput = form.querySelector('[name="pain"]');
-    var email = ((emailInput && emailInput.value) || '').trim();
-    var company = ((companyInput && companyInput.value) || '').trim();
-    var pain = ((painInput && painInput.value) || '').trim();
-
-    if (!email || email.indexOf('@') === -1) {
-      setStatus(form, 'Enter a valid work email.', true);
-      if (emailInput) emailInput.focus();
-      return;
-    }
-
-    var entry = {
-      email: email,
-      company: company,
-      pain: pain,
-      at: new Date().toISOString()
-    };
-
-    persist(entry);
-
     var button = form.querySelector('button[type="submit"]');
-    if (button) button.disabled = true;
+    var result = validate(form);
 
-    var done = function (message) {
-      setStatus(form, message, false);
+    if (!result.ok) {
+      setStatus(form, result.message, true);
+      var focusEl = form.elements.namedItem(result.focus);
+      if (focusEl && focusEl.focus) focusEl.focus();
+      return;
+    }
+
+    setFieldValue(form, 'source', result.payload.source);
+    setFieldValue(form, '_subject', result.payload._subject);
+
+    // Honeypot filled → pretend success, do not call Formspree.
+    if (result.payload._gotcha) {
+      setStatus(form, "Thanks, you're on the list. I'll reply within 2 business days.", false);
       form.reset();
-      if (button) button.disabled = false;
-    };
-
-    if (FORMSPREE_ENDPOINT) {
-      submitFormspree(FORMSPREE_ENDPOINT, entry)
-        .then(function () {
-          done('Request received. We will follow up by email.');
-        })
-        .catch(function () {
-          if (MAILTO_ADDRESS) {
-            openMailto(entry);
-            done('Server submit failed. Email draft opened — send to complete.');
-          } else {
-            openLinkedInNote(entry);
-            done('Server submit failed. LinkedIn opened — paste the copied CHECKTRAIL note.');
-          }
-          if (button) button.disabled = false;
-        });
+      setFieldValue(form, 'source', pageSource());
       return;
     }
 
-    if (MAILTO_ADDRESS) {
-      openMailto(entry);
-      done('Email draft opened with your request. Send it to complete. Also saved in this browser.');
-      return;
+    if (button) {
+      button.disabled = true;
+      button.setAttribute('aria-busy', 'true');
     }
+    setStatus(form, 'Sending…', false);
 
-    openLinkedInNote(entry);
-    done(
-      'Saved in this browser only (no server inbox yet). LinkedIn opened — send a CHECKTRAIL note (copied when possible).'
-    );
+    submitFormspree(result.payload)
+      .then(function () {
+        setStatus(form, "Thanks, you're on the list. I'll reply within 2 business days.", false);
+        form.reset();
+        setFieldValue(form, 'source', pageSource());
+      })
+      .catch(function () {
+        setStatus(form, errorMessage(), true);
+      })
+      .then(function () {
+        if (button) {
+          button.disabled = false;
+          button.removeAttribute('aria-busy');
+        }
+      });
   }
 
   document.querySelectorAll('[data-waitlist-form]').forEach(function (form) {
+    if (!form.getAttribute('action')) form.setAttribute('action', FORMSPREE_ENDPOINT);
+    form.setAttribute('method', 'POST');
+    setFieldValue(form, 'source', pageSource());
     form.addEventListener('submit', onSubmit);
   });
 })();

@@ -13,6 +13,7 @@
   <meta property="og:url" content="https://kozphy.github.io/pricing.html">
   <meta property="og:image" content="https://kozphy.github.io/assets/img/og-card.png">
   <link rel="stylesheet" href="assets/css/portfolio.css">
+  <script src="assets/js/waitlist.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -67,8 +68,70 @@
         Custom snowflakes cost more and are declined when they don’t become product.
       </p>
     </div>
+
+    <section class="section" id="waitlist" aria-labelledby="pricing-waitlist-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Request pilot</p>
+          <h2 id="pricing-waitlist-title">Design partners wanted.</h2>
+        </div>
+      </div>
+      <div class="why-grid">
+        <div>
+          <p class="lead narrow-lead">
+            Fixed-scope design pilot (USD 2–5k · 4–8 weeks). Evidence pack out.
+            Starting price locked for the pilot window.
+          </p>
+          <p class="micro">
+            Optional: DM LinkedIn with <code>CHECKTRAIL</code> —
+            <a href="https://www.linkedin.com/in/z-ixsa-4843b2262">Zixsa</a>.
+          </p>
+        </div>
+        <aside class="waitlist-card" aria-labelledby="pricing-form-title">
+          <p class="eyebrow">CTA</p>
+          <h2 id="pricing-form-title">Request pilot</h2>
+          <p class="waitlist-lead">I’ll reply within 2 business days.</p>
+          <form
+            class="waitlist-form"
+            data-waitlist-form
+            action="https://formspree.io/f/xdegapgp"
+            method="POST"
+            novalidate
+          >
+            <label class="waitlist-field">
+              <span>Work email</span>
+              <input type="email" name="email" autocomplete="email" required maxlength="254" placeholder="you@company.com">
+            </label>
+            <label class="waitlist-field">
+              <span>Name</span>
+              <input type="text" name="name" autocomplete="name" maxlength="100" placeholder="Your name">
+            </label>
+            <label class="waitlist-field">
+              <span>Company</span>
+              <input type="text" name="company" autocomplete="organization" maxlength="120" placeholder="Company">
+            </label>
+            <label class="waitlist-field">
+              <span>Role</span>
+              <input type="text" name="role" autocomplete="organization-title" maxlength="80" placeholder="Controllership · FinOps · AI ops">
+            </label>
+            <label class="waitlist-field">
+              <span>What breaks today?</span>
+              <input type="text" name="pain" maxlength="500" placeholder="Silent CSV drops / ungraded agent answers / …">
+            </label>
+            <input type="hidden" name="source" value="/pricing.html">
+            <input type="hidden" name="_subject" value="Checktrail waitlist">
+            <label class="hp" aria-hidden="true">
+              <span>Leave blank</span>
+              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off">
+            </label>
+            <button class="button" type="submit">Request pilot</button>
+            <p class="micro" data-waitlist-status role="status" aria-live="polite"></p>
+          </form>
+        </aside>
+      </div>
+    </section>
+
     <div class="actions">
-      <a class="button" href="index.html#waitlist">Request pilot</a>
       <a class="button secondary" href="about.html">About the company</a>
     </div>
   </main>
