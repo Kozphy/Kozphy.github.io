@@ -4,8 +4,11 @@
   var LINKEDIN = 'https://www.linkedin.com/in/z-ixsa-4843b2262';
   var STORAGE_KEY = 'checktrail-waitlist';
 
-  // Optional: set to a Formspree endpoint like https://formspree.io/f/xxxxxx
+  // Set ONE of these before marketing push for a real inbox capture:
+  // Formspree: https://formspree.io/f/xxxxxx
+  // Or a mailto address you monitor:
   var FORMSPREE_ENDPOINT = '';
+  var MAILTO_ADDRESS = '';
 
   function statusEl(form) {
     return form.querySelector('[data-waitlist-status]');
@@ -34,20 +37,35 @@
     }
   }
 
-  function openLinkedInNote(entry) {
-    var text =
-      'CHECKTRAIL waitlist\n' +
+  function noteText(entry) {
+    return (
+      'CHECKTRAIL pilot request\n' +
       'Email: ' + entry.email + '\n' +
       'Company: ' + (entry.company || '(not given)') + '\n' +
-      'Pain: ' + (entry.pain || '(not given)');
+      'Pain: ' + (entry.pain || '(not given)')
+    );
+  }
+
+  function copyNote(entry) {
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text);
+        navigator.clipboard.writeText(noteText(entry));
       }
     } catch (e) {
       /* ignore */
     }
+  }
+
+  function openLinkedInNote(entry) {
+    copyNote(entry);
     window.open(LINKEDIN, '_blank', 'noopener');
+  }
+
+  function openMailto(entry) {
+    var subject = encodeURIComponent('Checktrail pilot request');
+    var body = encodeURIComponent(noteText(entry));
+    window.location.href =
+      'mailto:' + MAILTO_ADDRESS + '?subject=' + subject + '&body=' + body;
   }
 
   function submitFormspree(endpoint, entry) {
@@ -76,9 +94,9 @@
     var emailInput = form.querySelector('[name="email"]');
     var companyInput = form.querySelector('[name="company"]');
     var painInput = form.querySelector('[name="pain"]');
-    var email = (emailInput && emailInput.value || '').trim();
-    var company = (companyInput && companyInput.value || '').trim();
-    var pain = (painInput && painInput.value || '').trim();
+    var email = ((emailInput && emailInput.value) || '').trim();
+    var company = ((companyInput && companyInput.value) || '').trim();
+    var pain = ((painInput && painInput.value) || '').trim();
 
     if (!email || email.indexOf('@') === -1) {
       setStatus(form, 'Enter a valid work email.', true);
@@ -107,18 +125,31 @@
     if (FORMSPREE_ENDPOINT) {
       submitFormspree(FORMSPREE_ENDPOINT, entry)
         .then(function () {
-          done('You are on the list. We will follow up by email.');
+          done('Request received. We will follow up by email.');
         })
         .catch(function () {
-          openLinkedInNote(entry);
-          done('Saved locally. LinkedIn opened — paste the copied CHECKTRAIL note if needed.');
+          if (MAILTO_ADDRESS) {
+            openMailto(entry);
+            done('Server submit failed. Email draft opened — send to complete.');
+          } else {
+            openLinkedInNote(entry);
+            done('Server submit failed. LinkedIn opened — paste the copied CHECKTRAIL note.');
+          }
           if (button) button.disabled = false;
         });
       return;
     }
 
+    if (MAILTO_ADDRESS) {
+      openMailto(entry);
+      done('Email draft opened with your request. Send it to complete. Also saved in this browser.');
+      return;
+    }
+
     openLinkedInNote(entry);
-    done('Saved in this browser. LinkedIn opened — send a CHECKTRAIL note (copied when possible).');
+    done(
+      'Saved in this browser only (no server inbox yet). LinkedIn opened — send a CHECKTRAIL note (copied when possible).'
+    );
   }
 
   document.querySelectorAll('[data-waitlist-form]').forEach(function (form) {

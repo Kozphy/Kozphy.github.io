@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /career/
 
 Sitemap: https://kozphy.github.io/sitemap.xml

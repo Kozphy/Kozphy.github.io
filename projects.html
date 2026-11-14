@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Evidence pack | Zixsa</title>
-  <meta name="description" content="Portfolio evidence for Technology Risk, Risk Advisory, and Financial Analysis roles, with explicit scope limits on each project.">
+  <title>Product demos | Checktrail</title>
+  <meta name="description" content="Checktrail working demos: CSV reconciliation gate and workpaper-shaped evidence pack.">
   <link rel="canonical" href="https://kozphy.github.io/projects.html">
   <link rel="icon" href="assets/img/portfolio-mark.svg" type="image/svg+xml">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Evidence pack | Zixsa">
-  <meta property="og:description" content="Inspect financial analysis, controls, and AI-evaluation evidence with clear limits.">
+  <meta property="og:title" content="Product demos | Checktrail">
+  <meta property="og:description" content="Recon gate and evidence pack schema — the shape of the SKU.">
   <meta property="og:url" content="https://kozphy.github.io/projects.html">
+  <meta property="og:image" content="https://kozphy.github.io/assets/img/og-card.png">
   <link rel="stylesheet" href="assets/css/portfolio.css">
 </head>
 <body>
@@ -18,154 +19,62 @@
   <header class="site-header">
     <div class="wrap nav">
       <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true">zx</span>
-        <span><strong>Zixsa</strong><small>Tech Risk · Controls · FA</small></span>
+        <span class="brand-mark" aria-hidden="true">ct</span>
+        <span><strong>Checktrail</strong><small>Evidence systems</small></span>
       </a>
       <nav aria-label="Main navigation">
         <a href="index.html">Home</a>
-        <a href="checktrail/index.html">Checktrail</a>
-        <a href="workpaper.html">Workpaper</a>
-        <a href="case.html">Case</a>
-        <a href="projects.html" aria-current="page">Work</a>
-        <a href="resume.html">Résumé</a>
-        <a class="nav-contact" href="index.html#contact">Contact</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="projects.html" aria-current="page">Demos</a>
+        <a class="nav-contact" href="index.html#waitlist">Get access</a>
       </nav>
     </div>
   </header>
 
   <main id="main" class="wrap">
     <div class="page-intro">
-      <p class="eyebrow">Evidence pack</p>
-      <h1>Proof before<br><em>the interview.</em></h1>
+      <p class="eyebrow">Working demos</p>
+      <h1>Shape of the SKU<br><em>— still early.</em></h1>
       <p class="lead">
-        Each item states the hiring track it supports and what the evidence does <em>not</em> prove.
-        Start with the workpaper and recon if you only have ten minutes; the FA case is secondary.
+        Public demos are educational / synthetic. Not an assurance service. Design-partner pilots would use partner data under NDA.
       </p>
     </div>
 
-    <section class="section project-grid" aria-label="Primary evidence">
+    <section class="section project-grid" aria-label="Product demos">
       <article class="project featured">
-        <span class="tag">Risk Advisory · sample workpaper</span>
-        <h3>WP-FIN-001 control workpaper</h3>
-        <p><strong>Problem:</strong> reviewers need a clear path from risk to control to reperformance evidence.</p>
-        <p><strong>Approach:</strong> risk register, control matrix, walkthrough/reperformance tests, exceptions, conclusion.</p>
-        <p><strong>Evidence:</strong> on-site workpaper mapped to the financial CSV validation process and analysis case.</p>
-        <p><strong>Scope:</strong> educational portfolio sample. Not a client workpaper or assurance opinion.</p>
-        <a class="project-link" href="workpaper.html">Open the workpaper ↗</a>
-        <a class="project-link" href="recon.html">CSV recon metrics ↗</a>
+        <span class="tag">Core module</span>
+        <h3>CSV reconciliation gate</h3>
+        <p>Match rate 0% → 63.6%. Open items 11 → 4. Exceptions quarantined, not dropped.</p>
+        <a class="project-link" href="recon.html">Open recon demo <span aria-hidden="true">↗</span></a>
       </article>
-
       <article class="project">
-        <span class="tag">Data quality · reconciliation</span>
-        <h3>Educational CSV reconciliation</h3>
-        <p><strong>Problem:</strong> book and bank extracts diverge; silent drops hide material open items.</p>
-        <p><strong>Approach:</strong> exact match on (value date, amount); quarantine unmatched keys with disposition notes.</p>
-        <p><strong>Evidence:</strong> match rate 0% → 63.6%; open items 11 → 4; exception CSV + JSON metrics + reproducible script.</p>
-        <p><strong>Scope:</strong> synthetic educational sample. Not a client engagement or paid proof.</p>
-        <a class="project-link" href="recon.html">Open recon evidence ↗</a>
-        <a class="project-link" href="assets/data/recon-result.json">View metrics JSON ↗</a>
+        <span class="tag">Evidence schema</span>
+        <h3>Workpaper-shaped export</h3>
+        <p>Risk → control → test → exception → conclusion — sample pack format for pilots.</p>
+        <a class="project-link" href="workpaper.html">Open sample pack <span aria-hidden="true">↗</span></a>
       </article>
     </section>
 
-    <section class="section project-grid" aria-label="Financial analysis evidence">
-      <article class="project">
-        <span class="tag">Financial Analyst</span>
-        <h3>Financial-analysis workflow</h3>
-        <p><strong>Problem:</strong> inputs, assumptions, and report numbers are hard to review when they live in disconnected spreadsheets.</p>
-        <p><strong>Approach:</strong> cash bridges, five-year growth path, valuation sensitivity, scenario export, and calculation tests.</p>
-        <p><strong>Evidence:</strong> interactive browser case, fixed input CSV, Python source, pytest-locked headline outputs, downloadable memo.</p>
-        <p><strong>Scope:</strong> educational single-company portfolio case. Not independent assurance or a client deliverable.</p>
-        <a class="project-link" href="case.html">Explore the case ↗</a>
-        <a class="project-link" href="https://github.com/Kozphy/financial-analysis-tool">Open the repository ↗</a>
-      </article>
+    <div class="notice archive-banner">
+      <p>
+        <strong>Archived hiring projects</strong> (Apple case, EvalForge notes, quant research) live under
+        <a href="career/">/career/</a> — not the product surface.
+      </p>
+    </div>
 
-      <article class="project">
-        <span class="tag">Tech Risk · data quality</span>
-        <h3>Financial data automation</h3>
-        <p><strong>Controls angle:</strong> validate before clean; quarantine rejects; append-only audit log; no silent drops.</p>
-        <p><strong>Scope:</strong> small public pipeline with tests. Not an enterprise ETL platform.</p>
-        <a class="project-link" href="https://github.com/Kozphy/financial-data-automation">Inspect pipeline ↗</a>
-      </article>
-    </section>
-
-    <section class="section project-grid" aria-label="AI and automation controls">
-      <article class="project">
-        <span class="tag">Adjacent · AI / model risk</span>
-        <h3>EvalForge</h3>
-        <p><strong>Problem:</strong> financial AI answers can look correct while calculating badly or inventing standards.</p>
-        <p><strong>Approach:</strong> deterministic graders, FIN-* taxonomy, regression against a baseline, and policy gates.</p>
-        <p><strong>Evidence:</strong> evaluation report, planted-error catches on a synthetic offline set, documented limits.</p>
-        <p><strong>Scope:</strong> synthetic offline benchmark. Does not prove live-model production performance.</p>
-        <a class="project-link" href="https://github.com/Kozphy/EvalForge">Inspect EvalForge ↗</a>
-        <a class="project-link" href="https://github.com/Kozphy/EvalForge/blob/main/docs/portfolio-positioning.md">Evidence limits ↗</a>
-      </article>
-
-      <article class="project">
-        <span class="tag">Tech Risk · automation governance</span>
-        <h3>CI Failure Orchestrator</h3>
-        <p><strong>Controls angle:</strong> fail-closed repair, policy gates, retry budgets, durable audit. A green test is not silent write access.</p>
-        <p><strong>Scope:</strong> engineering system with extensive tests/workflows. Useful for change-control conversations.</p>
-        <a class="project-link" href="https://github.com/Kozphy/ci-failure-orchestrator">Inspect orchestrator ↗</a>
-      </article>
-    </section>
-
-    <section class="section project-grid" aria-label="Additional controls evidence">
-      <article class="project">
-        <span class="tag">Risk Advisory · FinOps controls</span>
-        <h3>FinOps Decision &amp; Control</h3>
-        <p><strong>Controls angle:</strong> FOCUS-aligned allocation narrative, approval gates, segregation of duties, hash-chained audit language.</p>
-        <p><strong>Scope:</strong> docs-only public showcase; source is private. Treat as design evidence, not runnable code.</p>
-        <a class="project-link" href="https://github.com/Kozphy/finops-cloud-cost-platform-public">Inspect docs showcase ↗</a>
-      </article>
-
-      <article class="project">
-        <span class="tag">Markets controls notes</span>
-        <h3>Backtest review checklist</h3>
-        <p>Leakage, out-of-sample design, costs, and stop conditions—review questions, not trading returns.</p>
-        <a class="project-link" href="quant.html">Open risk notes ↗</a>
-      </article>
-    </section>
-
-    <section class="section two-col">
-      <div>
-        <p class="eyebrow">How to brief a hiring panel</p>
-        <h2>Match the repo to the seat.</h2>
-        <ul>
-          <li><strong>Technology Risk / Risk Advisory:</strong> workpaper + recon + financial-data-automation</li>
-          <li><strong>Internal Audit support:</strong> workpaper + exception log + walkthrough script</li>
-          <li><strong>Financial Analyst:</strong> case.html + financial-analysis-tool</li>
-          <li><strong>Remote trial task:</strong> ask for a CSV check + short exception memo</li>
-        </ul>
-      </div>
-      <div>
-        <p class="eyebrow">Secondary notes</p>
-        <h2>Markets controls checklist.</h2>
-        <p>Quant research notes stay secondary. They show how I review leakage, costs, and stop conditions—not trading returns.</p>
-        <p><a class="text-link" href="quant.html">Open risk &amp; markets notes ↗</a></p>
-        <p><a class="text-link" href="https://github.com/Kozphy/ForexTraderWithBloombergAccess-public">FX research framework mirror ↗</a></p>
-      </div>
-    </section>
-
-    <div class="contact" id="contact">
-      <div>
-        <p class="eyebrow">Next conversation</p>
-        <h2>Send the role track. I’ll send the matching walkthrough.</h2>
-        <p>Technology Risk, Risk Advisory, Internal Audit, or Financial Analysis — tell me which, plus location and remote policy.</p>
-      </div>
-      <div class="actions">
-        <a class="button" href="https://www.linkedin.com/in/z-ixsa-4843b2262">Contact on LinkedIn <span aria-hidden="true">↗</span></a>
-        <a class="button secondary" href="workpaper.html">Open the workpaper</a>
-      </div>
+    <div class="actions">
+      <a class="button" href="index.html#waitlist">Request pilot</a>
+      <a class="button secondary" href="pricing.html">Pricing</a>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="wrap footer-inner">
-      <span>© 2026 Zixsa · Taiwan<br>Technology risk + financial analysis portfolio.</span>
+      <span>© 2026 Checktrail</span>
       <div class="footer-links">
-        <a href="https://github.com/Kozphy">GitHub</a>
-        <a href="https://www.linkedin.com/in/z-ixsa-4843b2262">LinkedIn</a>
-        <a href="quant.html">Risk notes</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="career/">Career archive</a>
       </div>
     </div>
   </footer>
