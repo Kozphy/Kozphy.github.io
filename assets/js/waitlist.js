@@ -194,7 +194,7 @@
               : result.kind === 'problem'
                 ? 'problem_affirm'
                 : 'waitlist_submit',
-          { source: result.payload.source, company: result.payload.company }
+          { source: result.payload.source, form_kind: result.kind }
         );
         setStatus(form, SUCCESS[result.kind] || SUCCESS.waitlist, false);
         if (result.kind === 'problem') {

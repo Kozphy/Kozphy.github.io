@@ -1,16 +1,14 @@
 (function () {
   'use strict';
 
+  var core = window.ChecktrailRecon;
+  if (!core) {
+    console.error('[checktrail] recon-core.js must load before recon-demo.js');
+    return;
+  }
+
   var SAMPLE_SOURCE = 'assets/data/recon-source.csv';
   var SAMPLE_BANK = 'assets/data/recon-bank.csv';
-  var DISPOSITIONS = [
-    { value: '', label: 'Select disposition…' },
-    { value: 'investigate', label: 'Investigate' },
-    { value: 'timing_difference', label: 'Timing difference' },
-    { value: 'matched_manual', label: 'Matched manually (off-key)' },
-    { value: 'write_off', label: 'Write-off / immaterial' },
-    { value: 'escalate', label: 'Escalate' }
-  ];
 
   var state = {
     sourceText: '',
@@ -18,6 +16,7 @@
     sourceName: '',
     bankName: '',
     exceptions: [],
+    metrics: null,
     log: [],
     startedAt: null
   };
@@ -35,182 +34,27 @@
     renderLog();
   }
 
-  function parseCsv(text) {
-    var lines = text.replace(/^\uFEFF/, '').trim().split(/\r?\n/);
-    if (lines.length < 2) throw new Error('CSV needs a header and at least one row.');
-    var headers = splitCsvLine(lines[0]).map(function (h) {
-      return h.trim();
-    });
-    var rows = [];
-    for (var i = 1; i < lines.length; i++) {
-      if (!lines[i].trim()) continue;
-      var cols = splitCsvLine(lines[i]);
-      var row = {};
-      headers.forEach(function (h, idx) {
-        row[h] = (cols[idx] || '').trim();
-      });
-      rows.push(row);
-    }
-    return { headers: headers, rows: rows };
-  }
-
-  function splitCsvLine(line) {
-    var out = [];
-    var cur = '';
-    var inQ = false;
-    for (var i = 0; i < line.length; i++) {
-      var ch = line[i];
-      if (ch === '"') {
-        if (inQ && line[i + 1] === '"') {
-          cur += '"';
-          i++;
-        } else {
-          inQ = !inQ;
-        }
-      } else if (ch === ',' && !inQ) {
-        out.push(cur);
-        cur = '';
-      } else {
-        cur += ch;
-      }
-    }
-    out.push(cur);
-    return out;
-  }
-
-  function amountKey(row, amountCol) {
-    var amt = Number(String(row[amountCol]).replace(/,/g, ''));
-    if (!Number.isFinite(amt)) return null;
-    var date = row.value_date || row.Value_Date || '';
-    if (!date) return null;
-    return date + '|' + amt.toFixed(2);
-  }
-
-  function bucket(rows, amountCol) {
-    var map = Object.create(null);
-    var invalid = [];
-    rows.forEach(function (row, idx) {
-      var key = amountKey(row, amountCol);
-      if (!key) {
-        invalid.push({ rowIndex: idx + 2, row: row, reason: 'Missing value_date or invalid amount' });
-        return;
-      }
-      if (!map[key]) map[key] = { count: 0, amount: 0, rows: [] };
-      var amt = Number(String(row[amountCol]).replace(/,/g, ''));
-      map[key].count += 1;
-      map[key].amount += amt;
-      map[key].rows.push(row);
-    });
-    return { map: map, invalid: invalid };
-  }
-
-  function reconcile(sourceRows, bankRows) {
-    var source = bucket(sourceRows, 'amount_usd');
-    var bank = bucket(bankRows, 'amount_usd');
-    var sourceKeys = Object.keys(source.map);
-    var bankKeys = Object.keys(bank.map);
-    var matched = sourceKeys.filter(function (k) {
-      return bank.map[k];
-    });
-    var onlySource = sourceKeys.filter(function (k) {
-      return !bank.map[k];
-    });
-    var onlyBank = bankKeys.filter(function (k) {
-      return !source.map[k];
-    });
-    var allKeys = {};
-    sourceKeys.concat(bankKeys).forEach(function (k) {
-      allKeys[k] = true;
-    });
-    var denom = Math.max(Object.keys(allKeys).length, 1);
-    var matchRate = Math.round((1000 * matched.length) / denom) / 10;
-
-    var exceptions = [];
-    onlySource.sort().forEach(function (k) {
-      var parts = k.split('|');
-      exceptions.push({
-        id: 'src-' + k,
-        side: 'source_only',
-        value_date: parts[0],
-        amount_usd: parts[1],
-        disposition: '',
-        note: ''
-      });
-    });
-    onlyBank.sort().forEach(function (k) {
-      var parts = k.split('|');
-      exceptions.push({
-        id: 'bnk-' + k,
-        side: 'bank_only',
-        value_date: parts[0],
-        amount_usd: parts[1],
-        disposition: '',
-        note: ''
-      });
-    });
-    source.invalid.forEach(function (inv, i) {
-      exceptions.push({
-        id: 'inv-src-' + i,
-        side: 'invalid_source',
-        value_date: inv.row.value_date || '',
-        amount_usd: inv.row.amount_usd || '',
-        disposition: '',
-        note: inv.reason
-      });
-    });
-    bank.invalid.forEach(function (inv, i) {
-      exceptions.push({
-        id: 'inv-bnk-' + i,
-        side: 'invalid_bank',
-        value_date: inv.row.value_date || '',
-        amount_usd: inv.row.amount_usd || '',
-        disposition: '',
-        note: inv.reason
-      });
-    });
-
-    return {
-      source_rows: sourceRows.length,
-      bank_rows: bankRows.length,
-      matched_keys: matched.length,
-      unmatched_source: onlySource.length,
-      unmatched_bank: onlyBank.length,
-      match_rate_pct: matchRate,
-      quarantine_rows: exceptions.length,
-      before_open: Object.keys(allKeys).length,
-      exceptions: exceptions,
-      invalid_count: source.invalid.length + bank.invalid.length
-    };
-  }
-
   function runReconcile() {
     var status = $('#recon-status');
     try {
-      var sourceParsed = parseCsv(state.sourceText);
-      var bankParsed = parseCsv(state.bankText);
-      if (sourceParsed.headers.indexOf('amount_usd') === -1 || sourceParsed.headers.indexOf('value_date') === -1) {
-        throw new Error('Book CSV needs value_date and amount_usd columns.');
-      }
-      if (bankParsed.headers.indexOf('amount_usd') === -1 || bankParsed.headers.indexOf('value_date') === -1) {
-        throw new Error('Bank CSV needs value_date and amount_usd columns.');
-      }
-      var result = reconcile(sourceParsed.rows, bankParsed.rows);
+      var result = core.reconcileCsvTexts(state.sourceText, state.bankText);
       state.exceptions = result.exceptions;
       state.metrics = result;
       log('reconcile', {
         matched_keys: result.matched_keys,
+        matched_units: result.matched_units,
         quarantine_rows: result.quarantine_rows,
         match_rate_pct: result.match_rate_pct
       });
       renderMetrics(result);
       renderExceptions();
       $('#recon-workspace').hidden = false;
-      $('#export-btn').disabled = !allDisposed();
+      syncExportButton();
       if (status) {
         status.textContent =
           'Gate complete. ' +
           result.quarantine_rows +
-          ' exception(s) require disposition before export.';
+          ' exception(s). Sign-off export needs a resolving disposition on each (not Investigate / Escalate).';
         status.classList.remove('error');
       }
     } catch (err) {
@@ -222,13 +66,11 @@
     }
   }
 
-  function allDisposed() {
-    return (
-      state.exceptions.length > 0 &&
-      state.exceptions.every(function (ex) {
-        return Boolean(ex.disposition);
-      })
-    ) || state.exceptions.length === 0;
+  function syncExportButton() {
+    var status = core.signoffStatus(state.exceptions);
+    var btn = $('#export-btn');
+    if (btn) btn.disabled = !status.signoff_ready;
+    updateExportHint(status);
   }
 
   function renderMetrics(m) {
@@ -238,14 +80,25 @@
     $('#metric-invalid').textContent = String(m.invalid_count);
   }
 
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
   function renderExceptions() {
     var tbody = $('#exception-body');
     tbody.innerHTML = '';
     state.exceptions.forEach(function (ex) {
       var tr = document.createElement('tr');
+      var surplus =
+        ex.surplus_count && ex.surplus_count > 1 ? ' ×' + ex.surplus_count : '';
       tr.innerHTML =
         '<th scope="row">' +
         escapeHtml(ex.side) +
+        surplus +
         '</th><td>' +
         escapeHtml(ex.value_date) +
         '</td><td>' +
@@ -254,18 +107,22 @@
       var select = document.createElement('select');
       select.setAttribute('aria-label', 'Disposition for ' + ex.side + ' ' + ex.value_date);
       select.dataset.id = ex.id;
-      DISPOSITIONS.forEach(function (opt) {
+      core.DISPOSITIONS.forEach(function (opt) {
         var o = document.createElement('option');
         o.value = opt.value;
-        o.textContent = opt.label;
+        o.textContent = opt.label + (opt.kind === 'blocking' && opt.value ? ' (blocks sign-off)' : '');
         if (opt.value === ex.disposition) o.selected = true;
         select.appendChild(o);
       });
       select.addEventListener('change', function () {
         ex.disposition = select.value;
-        log('disposition_set', { id: ex.id, disposition: ex.disposition });
-        $('#export-btn').disabled = !allDisposed();
-        updateExportHint();
+        ex.blocks_signoff = core.isBlockingDisposition(ex.disposition);
+        log('disposition_set', {
+          id: ex.id,
+          disposition: ex.disposition,
+          kind: core.dispositionKind(ex.disposition)
+        });
+        syncExportButton();
       });
       tr.querySelector('.disp-cell').appendChild(select);
 
@@ -280,23 +137,25 @@
       tr.querySelector('.note-cell').appendChild(note);
       tbody.appendChild(tr);
     });
-    updateExportHint();
+    syncExportButton();
   }
 
-  function updateExportHint() {
+  function updateExportHint(status) {
     var hint = $('#export-hint');
     if (!hint) return;
+    status = status || core.signoffStatus(state.exceptions);
     if (!state.exceptions.length) {
-      hint.textContent = 'No exceptions — you can export a clean pack.';
+      hint.textContent = 'No exceptions — sign-off-ready pack can be exported.';
       return;
     }
-    var open = state.exceptions.filter(function (e) {
-      return !e.disposition;
-    }).length;
+    if (status.signoff_ready) {
+      hint.textContent =
+        'All exceptions have resolving dispositions. Sign-off-ready export is unlocked.';
+      return;
+    }
     hint.textContent =
-      open === 0
-        ? 'All exceptions disposed. Export is unlocked.'
-        : open + ' exception(s) still need a disposition.';
+      status.blocking_exceptions +
+      ' exception(s) still block sign-off (empty, Investigate, or Escalate).';
   }
 
   function renderLog() {
@@ -307,14 +166,6 @@
         return row.at + '  ' + row.event + (row.detail ? '  ' + JSON.stringify(row.detail) : '');
       })
       .join('\n');
-  }
-
-  function escapeHtml(s) {
-    return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
   }
 
   function hex(buffer) {
@@ -330,33 +181,6 @@
     return crypto.subtle.digest('SHA-256', enc).then(hex);
   }
 
-  function buildPack() {
-    var exportedAt = new Date().toISOString();
-    return {
-      product: 'Checktrail',
-      module: 'csv_reconciliation',
-      label: 'Educational / synthetic demo — not an assurance service',
-      method: 'Exact match on (value_date, amount_usd); remainder quarantined',
-      inputs: {
-        source_file: state.sourceName || 'book.csv',
-        bank_file: state.bankName || 'bank.csv'
-      },
-      metrics: state.metrics,
-      exceptions: state.exceptions.map(function (ex) {
-        return {
-          side: ex.side,
-          value_date: ex.value_date,
-          amount_usd: ex.amount_usd,
-          disposition: ex.disposition,
-          note: ex.note || ''
-        };
-      }),
-      process_log: state.log.slice(),
-      exported_at: exportedAt,
-      demo_started_at: state.startedAt
-    };
-  }
-
   function download(filename, text, type) {
     var blob = new Blob([text], { type: type || 'application/json' });
     var url = URL.createObjectURL(blob);
@@ -370,17 +194,31 @@
   }
 
   function exportPack() {
-    if (!allDisposed()) {
-      $('#recon-status').textContent = 'Set a disposition on every exception before export.';
+    var status = core.signoffStatus(state.exceptions);
+    if (!status.signoff_ready) {
+      $('#recon-status').textContent =
+        'Sign-off export blocked: set a resolving disposition on every exception (not Investigate / Escalate).';
       $('#recon-status').classList.add('error');
       return;
     }
-    var pack = buildPack();
+    var pack = core.buildPackSkeleton({
+      exceptions: state.exceptions,
+      metrics: state.metrics,
+      processLog: state.log,
+      sourceName: state.sourceName,
+      bankName: state.bankName,
+      startedAt: state.startedAt,
+      exportedAt: new Date().toISOString()
+    });
     var bodyForHash = JSON.stringify(pack, null, 2);
     sha256(bodyForHash).then(function (hash) {
       pack.sha256 = hash;
       pack.sha256_of = 'JSON body excluding sha256 and sha256_of fields';
-      log('export', { sha256: hash, exception_count: pack.exceptions.length });
+      log('export', {
+        sha256: hash,
+        exception_count: pack.exceptions.length,
+        signoff_ready: pack.signoff_ready
+      });
       var finalText = JSON.stringify(pack, null, 2) + '\n';
       download('checktrail-recon-evidence.json', finalText, 'application/json');
       var stamp = new Date().toISOString().replace(/[:.]/g, '-');
@@ -392,10 +230,14 @@
           .join('\n') +
         '\nsha256=' +
         hash +
+        '\nsignoff_ready=' +
+        pack.signoff_ready +
         '\n';
       download('checktrail-recon-log-' + stamp + '.txt', logText, 'text/plain');
       $('#recon-status').textContent =
-        'Evidence pack exported (JSON + log). SHA-256: ' + hash.slice(0, 16) + '…';
+        'Sign-off-ready pack exported. SHA-256 is of pack JSON (not CSV bytes): ' +
+        hash.slice(0, 16) +
+        '…';
       $('#recon-status').classList.remove('error');
       $('#pack-hash').textContent = hash;
       unlockPilotCta(hash);
@@ -419,7 +261,7 @@
       /* ignore */
     }
     if (typeof window.ctTrack === 'function') {
-      window.ctTrack('demo_export', { sha256: (hash || '').slice(0, 16) });
+      window.ctTrack('demo_export', { sha256_prefix: (hash || '').slice(0, 16) });
     }
   }
 
@@ -439,25 +281,30 @@
   function loadSample() {
     state.startedAt = new Date().toISOString();
     state.log = [];
-    Promise.all([fetch(SAMPLE_SOURCE).then(function (r) {
-      if (!r.ok) throw new Error('Missing sample book CSV');
-      return r.text();
-    }), fetch(SAMPLE_BANK).then(function (r) {
-      if (!r.ok) throw new Error('Missing sample bank CSV');
-      return r.text();
-    })]).then(function (pair) {
-      state.sourceText = pair[0];
-      state.bankText = pair[1];
-      state.sourceName = 'recon-source.csv';
-      state.bankName = 'recon-bank.csv';
-      $('#source-label').textContent = state.sourceName + ' (bundled sample)';
-      $('#bank-label').textContent = state.bankName + ' (bundled sample)';
-      log('load_sample', { source: SAMPLE_SOURCE, bank: SAMPLE_BANK });
-      runReconcile();
-    }).catch(function (err) {
-      $('#recon-status').textContent = String(err.message || err);
-      $('#recon-status').classList.add('error');
-    });
+    Promise.all([
+      fetch(SAMPLE_SOURCE).then(function (r) {
+        if (!r.ok) throw new Error('Missing sample book CSV');
+        return r.text();
+      }),
+      fetch(SAMPLE_BANK).then(function (r) {
+        if (!r.ok) throw new Error('Missing sample bank CSV');
+        return r.text();
+      })
+    ])
+      .then(function (pair) {
+        state.sourceText = pair[0];
+        state.bankText = pair[1];
+        state.sourceName = 'recon-source.csv';
+        state.bankName = 'recon-bank.csv';
+        $('#source-label').textContent = state.sourceName + ' (bundled sample)';
+        $('#bank-label').textContent = state.bankName + ' (bundled sample)';
+        log('load_sample', { source: SAMPLE_SOURCE, bank: SAMPLE_BANK });
+        runReconcile();
+      })
+      .catch(function (err) {
+        $('#recon-status').textContent = String(err.message || err);
+        $('#recon-status').classList.add('error');
+      });
   }
 
   function wire() {

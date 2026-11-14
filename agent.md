@@ -1,62 +1,12 @@
-Please audit the current GitHub Pages project, identify structural and deployment issues, then optimize and rebuild it into a clean, modular, production-ready static site using only HTML, CSS, and Vanilla JS. Keep it fully compatible with GitHub Pages and verify all paths and links.
+# Agent notes — Kozphy.github.io
 
-This site is a personal portfolio for Big 4 / Quant / international career positioning, so optimize for professionalism, clarity, and recruiter-friendly structure.
+Primary public surface is **Checktrail** (company / demand validation) at `/`.
+Hiring materials are archived under `/career/` (`noindex`, `robots.txt` Disallow).
 
-Project goals:
-- Static site only
-- HTML + CSS + Vanilla JS
-- No frameworks
-- No build step
-- Clean, modular, professional structure
-- Fully deployable on GitHub Pages
-- Easy to maintain and scale later
+Constraints:
+- Static HTML, CSS, Vanilla JS only
+- GitHub Pages compatible; no paid APIs
+- Educational demos are labeled — not production evidence or assurance
+- Do not force-push or rewrite published git history (Lovable-connected)
 
-Rules:
-- Keep index.html as entry point
-- Always use relative paths
-- Keep assets under /assets
-- Avoid unnecessary dependencies
-- Prefer simple modular structure
-- Preserve GitHub Pages compatibility
-- Optimize for readability and maintainability
-
-Your workflow:
-1. Audit the current project structure first.
-2. Identify structural problems, path issues, maintainability issues, and deployment risks.
-3. Propose the best final folder structure before rewriting files.
-4. Rebuild the project into a clean production-ready GitHub Pages layout.
-5. Fix all relative paths for GitHub Pages project-site deployment.
-6. Improve naming, organization, and separation of concerns.
-7. Keep the solution simple and avoid unnecessary complexity.
-8. Validate that index.html works as the main entry point and that links/assets are not broken.
-
-Output format:
-- First: brief audit of current problems
-- Second: proposed new folder structure
-- Third: implementation changes file by file
-- Fourth: final verification checklist
-
-Technical requirements:
-- Use relative paths, not root-absolute paths
-- No broken internal links
-- No broken CSS/JS/image paths
-- No external build tools
-- No unnecessary dependencies
-- Keep it recruiter-friendly and professional
-
-Optimization rules:
-- Prefer the simplest structure that is still scalable
-- Minimize duplicate code
-- Group reusable assets logically
-- Improve readability for future edits
-- Prefer convention over cleverness
-
-Before making changes, explain:
-- what is wrong now
-- what should be improved
-- why the new structure is better for GitHub Pages
-
-If the current structure is already partially good, preserve what is good and improve only what is necessary.
-
-Here is the current structure/code:
-[paste files here]
+See `README.md` for funnel, evidence boundaries, and local checks.

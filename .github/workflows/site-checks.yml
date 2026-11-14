@@ -26,10 +26,15 @@ jobs:
           node --check assets/js/case-model.js
           node --check assets/js/portfolio.js
           node --check assets/js/waitlist.js
+          node --check assets/js/validate-events.js
+          node --check assets/js/recon-core.js
+          node --check assets/js/recon-demo.js
       - name: Validate nested HTML
         run: npx --yes html-validate@9 "career/*.html" "checktrail/*.html"
       - name: Verify case calculations and scenario exports
         run: node --test tests/case-model.test.cjs
+      - name: Verify recon demo core (cardinality, sign-off gate, SHA-256)
+        run: node --test tests/recon-demo.test.cjs
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
