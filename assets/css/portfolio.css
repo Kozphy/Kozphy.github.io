@@ -12,8 +12,9 @@
 .why-list li{margin-bottom:12px}
 .why-list strong{color:var(--ink)}
 .hero-product{align-items:stretch}
-.hero-career-link{margin-top:22px;max-width:420px}
+.hero-career-link{margin-top:22px;max-width:480px}
 .hero-career-link a{font-weight:600}
+.edu-line{margin:0 0 4px;color:var(--ink);max-width:520px}
 .waitlist-card{background:var(--white);border:1px solid var(--line);border-radius:7px;padding:28px 26px;box-shadow:0 20px 60px #1b402a0a;align-self:center}
 .waitlist-card h2{font-size:28px;margin-bottom:10px}
 .waitlist-lead{font-size:14px;color:var(--muted);margin:0 0 18px;line-height:1.7}

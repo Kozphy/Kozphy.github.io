@@ -6,19 +6,21 @@ Do not put legal name in About / Headline / Featured captions.
 ## Headline
 
 ```
-Technology Risk / Risk Advisory · Financial Analysis · Accounting + Python
+Technology Risk · Risk & Controls · Financial Data | Python · SQL
 ```
 
 ## About
 
 ```
-Accounting background. Technology Risk / Risk Advisory focus. Financial Analysis as a parallel strength.
+Accounting-trained. Building Technology Risk, Risk & Controls, and Financial Data capability with Python and SQL: control workpapers, exception logs, reconciliations with before/after metrics, and checks a reviewer can reperform.
 
-I build evidence a reviewer can reperform: control workpapers, exception logs, reconciliations with before/after metrics, and Python checks with explicit educational limits.
+Primary seats: Technology Risk Analyst · Risk & Controls Analyst · Financial Data Analyst
+Adjacent: IT Audit support · Data Governance · AI Governance (scoped evidence)
 
-Portfolio (Zixsa): kozphy.github.io — start with the workpaper and recon proof.
+Portfolio: kozphy.github.io
+Start with the workpaper and recon proof.
 
-Based in Taiwan. Open to remote and international Tech Risk / Risk Advisory / Internal Audit / FA scopes. Legal identity and work authorization details stay with HR when required.
+Based in Taiwan. Legal identity and work authorization details stay with HR when required.
 ```
 
 ## Featured (add in this order)
@@ -27,3 +29,5 @@ Based in Taiwan. Open to remote and international Tech Risk / Risk Advisory / In
 2. https://kozphy.github.io/workpaper.html — WP-FIN-001  
 3. https://kozphy.github.io/recon.html — CSV recon metrics  
 4. https://kozphy.github.io/resume.html — Résumé  
+
+Product (optional, not Featured #1): https://kozphy.github.io/checktrail/

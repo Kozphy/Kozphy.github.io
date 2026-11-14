@@ -4,12 +4,13 @@ Live site: https://kozphy.github.io/
 
 Static HTML, CSS, and vanilla JavaScript. No runtime dependencies or build step.
 
-Positioning: **Checktrail product** (fail-closed evidence for finance & AI automation) on the homepage; optional **career archive** at `/career/` for employment materials.
+Positioning: **candidate portfolio first** (Technology Risk · Risk & Controls · Financial Data). Product waitlist for **Checktrail** lives at `/checktrail/`.
 
 ## Visitor journey
 
-- `index.html` — Checktrail wedge + waitlist (primary)
-- `career/` — employment archive (workpaper path, résumé, hiring walkthrough)
+- `index.html` — hiring homepage (hero, proof strip, 10-minute path, evidence, skills, experience, recruiter contact)
+- `checktrail/` — Checktrail product wedge + waitlist
+- `career/` — redirect to homepage (legacy URL)
 - `workpaper.html` — sample Risk Advisory control workpaper
 - `recon.html` — educational CSV reconciliation with before/after metrics
 - `case.html` — interactive Apple FY2025 case (secondary FA evidence)
@@ -19,7 +20,7 @@ Positioning: **Checktrail product** (fail-closed evidence for finance & AI autom
 - `quant.html` — secondary markets-control review notes
 - `404.html` — fallback page
 
-Waitlist: `assets/js/waitlist.js` saves locally and opens LinkedIn. Set `FORMSPREE_ENDPOINT` in that file to collect emails server-side.
+Waitlist (product only): `assets/js/waitlist.js`. Set `FORMSPREE_ENDPOINT` there for server-side email capture.
 
 ## Calculation contract
 
