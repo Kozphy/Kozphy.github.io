@@ -1,0 +1,73 @@
+about.html
+  s_970ce1d8e4c68a::t_d1745969e079cb 27-28,30
+  s_970ce1d8e4c68a::t_79d6c66a4dc059 58
+founder.html
+  s_970ce1d8e4c68a::t_8432f6c43990a7 27-28,30
+pricing.html
+  s_970ce1d8e4c68a::t_04950178ec0903 6-7,11-12,23,27-28,30,37,39-40,48,50,65-66,70-72
+workpaper.html
+  s_970ce1d8e4c68a::t_266e42237d2553 27,29-30
+  s_970ce1d8e4c68a::t_37c5c2b7c8bb4f 47
+  s_970ce1d8e4c68a::t_f7531e34f70e15 189-190
+404.html
+  s_970ce1d8e4c68a::t_3c31e6ce0bf06e 22
+  s_970ce1d8e4c68a::t_f3f74aed8ccedc 31
+projects.html
+  s_970ce1d8e4c68a::t_4060faaf7d0a95 66-67
+  s_970ce1d8e4c68a::t_03637ee64aff29 48
+  s_970ce1d8e4c68a::t_de9e9fc5abdb3d 27,29
+problem.html
+  s_970ce1d8e4c68a::t_4674f868dea2b5 1-38,45-68,92-140
+  s_970ce1d8e4c68a::t_3d9811dfc486ee 72,76,80,84,88
+  s_970ce1d8e4c68a::t_2f4786164aeb84 69-71,73-75,77-79,81-83,85-87,89-91
+  s_970ce1d8e4c68a::t_6157cf322ca4ac 39-44
+assets/js/recon-demo.js
+  s_970ce1d8e4c68a::t_98033bdc0b71c9 401,405-409,411-413,420-425
+  s_970ce1d8e4c68a::t_37c5c2b7c8bb4f 410,414-419
+  s_970ce1d8e4c68a::t_667fac9035d051 464-471
+README.md
+  s_970ce1d8e4c68a::t_227fd79afd74a7 3,5,7,9-16,18,20
+assets/js/waitlist.js
+  s_970ce1d8e4c68a::t_b251dc6bb3e962 50,53
+  s_970ce1d8e4c68a::t_31e1bcf27f520b 12-14,19-25,39-41,51-52,54-57,64-67,70,75-86,88,94-95,103,108,110-127,129-130,142-154,175,189-203
+  s_970ce1d8e4c68a::t_360f84dda6954b 49
+  s_970ce1d8e4c68a::t_8371b494aa666d 96
+  s_970ce1d8e4c68a::t_04b2ae48879143 109
+demo.html
+  s_970ce1d8e4c68a::t_1a9c8992d2a4cc 141
+  s_970ce1d8e4c68a::t_44a81f72b12936 1-39,46-140,142-208
+  s_970ce1d8e4c68a::t_2c0754c58beab9 40-45
+assets/css/portfolio.css
+  s_970ce1d8e4c68a::t_51da380705e8e6 28-32
+  s_970ce1d8e4c68a::t_2833ce86522010 33-40
+interview.html
+  s_970ce1d8e4c68a::t_bb0f6d6a5e8190 1-38,45-154
+  s_970ce1d8e4c68a::t_076e40a97fb9b3 39-44
+index.html
+  s_970ce1d8e4c68a::t_fdf83cd586fcff 41-46
+  s_970ce1d8e4c68a::t_46180817ce56a9 6-7,11-12,17,25,28-32,47-48,50-51,54-55,58-59,62-63,65-72,77,80-81,84-88,90-93,95-98,100-103,108,110-112,114-116,118,124,126-128,133-137
+recon.html
+  s_970ce1d8e4c68a::t_8e5bb0baf10673 6-9,12,15-18
+waitlist.html
+  s_970ce1d8e4c68a::t_e2e05faf6b5d6e 1-114
+sitemap.xml
+  s_970ce1d8e4c68a::t_2287611a26e963 4-7
+assets/js/validate-events.js
+  s_970ce1d8e4c68a::t_d5ec72614c411e 1-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "28242540fafad82f9ba227b2d6f25b877b8ca9f7",
+  "prompts": {},
+  "sessions": {
+    "s_970ce1d8e4c68a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "29c84e65-66e4-43aa-89b4-784e9cf3fd4e",
+        "model": "default"
+      },
+      "human_author": "Zixsa <50504962+Kozphy@users.noreply.github.com>"
+    }
+  }
+}
