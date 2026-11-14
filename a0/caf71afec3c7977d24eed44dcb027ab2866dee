@@ -1,0 +1,24 @@
+assets/css/portfolio.css
+  s_970ce1d8e4c68a::t_e33655bb222d49 47-48
+assets/js/recon-demo.js
+  s_970ce1d8e4c68a::t_c5bd27e4abe637 379-380,382,384,387,393-396
+  s_970ce1d8e4c68a::t_2a0e6ece5e92f5 1-378,381,383,385-386,388-392,397-479
+recon.html
+  s_970ce1d8e4c68a::t_8c41b7dd1c9fd3 7,12,16,38-39,41-42,47-49,52-89,91,94-153,155-156,166,175-178,183
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a0caf71afec3c7977d24eed44dcb027ab2866dee",
+  "prompts": {},
+  "sessions": {
+    "s_970ce1d8e4c68a": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "29c84e65-66e4-43aa-89b4-784e9cf3fd4e",
+        "model": "default"
+      },
+      "human_author": "Zixsa <50504962+Kozphy@users.noreply.github.com>"
+    }
+  }
+}
