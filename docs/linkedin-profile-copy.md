@@ -1,33 +1,61 @@
 # LinkedIn profile copy (paste manually)
 
-Public brand: **Zixsa** · site: https://kozphy.github.io  
+Public brand: **Zixsa** · company surface: https://kozphy.github.io  
 Do not put legal name in About / Headline / Featured captions.
 
 ## Headline
 
 ```
-Technology Risk · Risk & Controls · Financial Data | Python · SQL
+Building Checktrail — fail-closed evidence for finance & AI automation | Design partners
+```
+
+(Alt if character limit bites:)
+
+```
+Checktrail · evidence packs for silent failures before sign-off | DM CHECKTRAIL
 ```
 
 ## About
 
 ```
-Accounting-trained. Building Technology Risk, Risk & Controls, and Financial Data capability with Python and SQL: control workpapers, exception logs, reconciliations with before/after metrics, and checks a reviewer can reperform.
+I build Checktrail: fail-closed gates, quarantined exceptions, and reperformable evidence packs for finance and AI automation runs.
 
-Primary seats: Technology Risk Analyst · Risk & Controls Analyst · Financial Data Analyst
-Adjacent: IT Audit support · Data Governance · AI Governance (scoped evidence)
+The bet: silent failures before sign-off are a budgeted pain for controllership, FinOps, and AI-ops teams — not another GRC suite or chat wrapper.
 
-Portfolio: kozphy.github.io
-Start with the workpaper and recon proof.
+What I’m doing now
+• Customer interviews (20 min — diagnose your exception trail)
+• Interactive demo: ingest → gate → quarantine → export pack
+• Design-partner pilots (USD 2–5k · 4–8 weeks) after a real conversation
 
-Based in Taiwan. Legal identity and work authorization details stay with HR when required.
+Start here: https://kozphy.github.io
+Book a call: https://kozphy.github.io/interview.html
+Demo: https://kozphy.github.io/demo.html
+
+Accounting background. Based in Taiwan.
+DM CHECKTRAIL + one line on where automation fails quietly.
+
+Not hiring-first. Not an assurance service or audit opinion.
 ```
 
-## Featured (add in this order)
+## Featured (this order)
 
-1. https://kozphy.github.io — Portfolio home  
-2. https://kozphy.github.io/workpaper.html — WP-FIN-001  
-3. https://kozphy.github.io/recon.html — CSV recon metrics  
-4. https://kozphy.github.io/resume.html — Résumé  
+1. https://kozphy.github.io — Checktrail home (interview-first)  
+2. https://kozphy.github.io/interview.html — Book discovery call  
+3. https://kozphy.github.io/demo.html — Interactive recon demo  
+4. https://kozphy.github.io/problem.html — Failure-mode check  
 
-Product (optional, not Featured #1): https://kozphy.github.io/checktrail/
+Optional: https://kozphy.github.io/pricing.html  
+Archive only (not Featured): /career/
+
+## Experience entry (Checktrail)
+
+**Title:** Founder  
+**Company:** Checktrail (or “Self-employed / Checktrail”)  
+**Description:**
+
+```
+Fail-closed evidence systems for finance & AI automation.
+Ingest → gate → quarantine → evidence pack.
+Seeking design partners; validating demand via interviews + demo exports.
+kozphy.github.io
+```
